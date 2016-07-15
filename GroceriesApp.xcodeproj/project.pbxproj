@@ -12,7 +12,34 @@
 		F55420DD1D34328000E78F88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55420DB1D34328000E78F88 /* Main.storyboard */; };
 		F55420DF1D34328000E78F88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55420DE1D34328000E78F88 /* Assets.xcassets */; };
 		F55420E21D34328000E78F88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55420E01D34328000E78F88 /* LaunchScreen.storyboard */; };
+		F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5B31D36B45700E53D53 /* ListGroceryCell.swift */; };
+		F59AA5BA1D36DBFF00E53D53 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5B91D36DBFF00E53D53 /* PhotoViewController.swift */; };
+		F59AA5BC1D38204C00E53D53 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5BB1D38204C00E53D53 /* GroceryItem.swift */; };
+		F59AA5BE1D383F4B00E53D53 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5BD1D383F4B00E53D53 /* RealmHelper.swift */; };
+		F59AA5C21D38403700E53D53 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5C11D38403700E53D53 /* NSDate+convertToString.swift */; };
+		F59AA5C41D38577B00E53D53 /* DisplayItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5C31D38577B00E53D53 /* DisplayItemViewController.swift */; };
+		F59AA5C71D387B1C00E53D53 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59AA5C51D387B1C00E53D53 /* Realm.framework */; };
+		F59AA5C81D387B1C00E53D53 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F59AA5C51D387B1C00E53D53 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F59AA5C91D387B1C00E53D53 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */; };
+		F59AA5CA1D387B1C00E53D53 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F59AA5D31D3970B500E53D53 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5D21D3970B500E53D53 /* GroceryListViewController.swift */; };
+		F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F59AA5CB1D387B1C00E53D53 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F59AA5CA1D387B1C00E53D53 /* RealmSwift.framework in Embed Frameworks */,
+				F59AA5C81D387B1C00E53D53 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F55420D41D34328000E78F88 /* GroceriesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +49,16 @@
 		F55420DE1D34328000E78F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F55420E11D34328000E78F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F55420E31D34328000E78F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F59AA5B31D36B45700E53D53 /* ListGroceryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGroceryCell.swift; sourceTree = "<group>"; };
+		F59AA5B91D36DBFF00E53D53 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		F59AA5BB1D38204C00E53D53 /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		F59AA5BD1D383F4B00E53D53 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		F59AA5C11D38403700E53D53 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
+		F59AA5C31D38577B00E53D53 /* DisplayItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayItemViewController.swift; sourceTree = "<group>"; };
+		F59AA5C51D387B1C00E53D53 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		F59AA5D21D3970B500E53D53 /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
+		F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59AA5C91D387B1C00E53D53 /* RealmSwift.framework in Frameworks */,
+				F59AA5C71D387B1C00E53D53 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +77,8 @@
 		F55420CB1D34328000E78F88 = {
 			isa = PBXGroup;
 			children = (
+				F59AA5C51D387B1C00E53D53 /* Realm.framework */,
+				F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */,
 				F55420D61D34328000E78F88 /* GroceriesApp */,
 				F55420D51D34328000E78F88 /* Products */,
 			);
@@ -56,10 +97,18 @@
 			children = (
 				F55420D71D34328000E78F88 /* AppDelegate.swift */,
 				F55420D91D34328000E78F88 /* ViewController.swift */,
+				F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */,
 				F55420DB1D34328000E78F88 /* Main.storyboard */,
 				F55420DE1D34328000E78F88 /* Assets.xcassets */,
 				F55420E01D34328000E78F88 /* LaunchScreen.storyboard */,
 				F55420E31D34328000E78F88 /* Info.plist */,
+				F59AA5B31D36B45700E53D53 /* ListGroceryCell.swift */,
+				F59AA5B91D36DBFF00E53D53 /* PhotoViewController.swift */,
+				F59AA5BB1D38204C00E53D53 /* GroceryItem.swift */,
+				F59AA5BD1D383F4B00E53D53 /* RealmHelper.swift */,
+				F59AA5C11D38403700E53D53 /* NSDate+convertToString.swift */,
+				F59AA5C31D38577B00E53D53 /* DisplayItemViewController.swift */,
+				F59AA5D21D3970B500E53D53 /* GroceryListViewController.swift */,
 			);
 			path = GroceriesApp;
 			sourceTree = "<group>";
@@ -74,6 +123,7 @@
 				F55420D01D34328000E78F88 /* Sources */,
 				F55420D11D34328000E78F88 /* Frameworks */,
 				F55420D21D34328000E78F88 /* Resources */,
+				F59AA5CB1D387B1C00E53D53 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,8 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59AA5D31D3970B500E53D53 /* GroceryListViewController.swift in Sources */,
 				F55420DA1D34328000E78F88 /* ViewController.swift in Sources */,
 				F55420D81D34328000E78F88 /* AppDelegate.swift in Sources */,
+				F59AA5BA1D36DBFF00E53D53 /* PhotoViewController.swift in Sources */,
+				F59AA5C41D38577B00E53D53 /* DisplayItemViewController.swift in Sources */,
+				F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */,
+				F59AA5BE1D383F4B00E53D53 /* RealmHelper.swift in Sources */,
+				F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */,
+				F59AA5BC1D38204C00E53D53 /* GroceryItem.swift in Sources */,
+				F59AA5C21D38403700E53D53 /* NSDate+convertToString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +307,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = GroceriesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -260,10 +325,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = GroceriesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -286,6 +358,7 @@
 				F55420E81D34328000E78F88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
