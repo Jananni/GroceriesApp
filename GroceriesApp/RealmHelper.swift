@@ -33,16 +33,16 @@ class RealmHelper {
    static func updateNote(noteToBeUpdated: GroceryItem, newNote: GroceryItem) {
       let realm = try! Realm()
       try! realm.write() {
-         noteToBeUpdated.daysLeft = newNote.daysLeft
          noteToBeUpdated.itemName = newNote.itemName
+         //   noteToBeUpdated.content = newNote.content
+         //     noteToBeUpdated.modificationTime = newNote.modificationTime
       }
    }
 
    static func retrieveNotes() -> Results<GroceryItem> {
       let realm = try! Realm()
-      return realm.objects(GroceryItem).sorted("daysLeft", ascending: false)
+      return realm.objects(GroceryItem).sorted("itemName", ascending: false)
    }
    
 }
- 
 

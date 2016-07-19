@@ -11,16 +11,8 @@ import UIKit
 class ListGroceryCell: UITableViewCell {
 
    @IBOutlet weak var noteTitleLabel: UILabel!
-   @IBOutlet weak var noteDaysLeft: UILabel!
 
-   var groceryItem: GroceryItem? {
-      didSet {
-         if let groceryItem = groceryItem
-         {
-            noteTitleLabel.text = groceryItem.itemName
-            noteDaysLeft.text = String(groceryItem.daysLeft)
-         }
-      }
-   }
+   @IBOutlet weak var noteDaysLeftLabel: UILabel!
+
 
 }

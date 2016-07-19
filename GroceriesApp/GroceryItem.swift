@@ -12,16 +12,9 @@ import RealmSwift
 
 
 class GroceryItem: Object {
-/*   var daysLeft: Int
-   var itemName: String
 
-   init (days: Int, name: String) {
-      self.daysLeft = days
-      self.itemName = name
-   }
-*/
-   dynamic var daysLeft: Int = 0
-   dynamic var itemName: String = ""
+    dynamic var daysLeft: Int = 0
+    dynamic var itemName: String = ""
 
 
 

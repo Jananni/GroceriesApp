@@ -22,6 +22,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
    @IBOutlet weak var noteDateTextField: UITextField!
 
+   @IBOutlet weak var saveButton: UIBarButtonItem!
+
+
    var note: GroceryItem?
 
     override func viewDidLoad() {
@@ -61,8 +64,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
       ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
    }
 
-
-
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController
       if segue.identifier == "Save" {
@@ -70,35 +71,35 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
          if let note = note {
             // 1
             let newNote = GroceryItem()
-            //       newNote.daysLeft = NSDate() - noteDateTextField.date ?? ""
             newNote.itemName = noteNameTextField.text ?? ""
+            //    newNote.daysLeft = noteContentTextView.text ?? ""
             RealmHelper.updateNote(note, newNote: newNote)
          } else {
             // if note does not exist, create new note
             let note = GroceryItem()
-            //       note.daysLeft = NSDate() - noteDateTextField.date ?? ""
             note.itemName = noteNameTextField.text ?? ""
+            //    note.content = noteContentTextView.text ?? ""
+            //  note.modificationTime = NSDate()
             // 2
             RealmHelper.addNote(note)
          }
          // 3
-         //    listNotesTableViewController.groceries = RealmHelper.retrieveNotes()
+         listNotesTableViewController.notes = RealmHelper.retrieveNotes()
       }
    }
 
    override func viewWillAppear(animated: Bool) {
       super.viewWillAppear(animated)
-//      // 1
-//      if let note = note {
-//         // 2
-//         noteDateTextField.text = note.daysLeft
-//         noteNameTextField.text = note.itemName
-//      } else {
-//         // 3
-//         noteDateTextField.text = ""
-//         noteNameTextField.text = ""
-//      }
+      // 1
+      if let note = note {
+         // 2
+         noteNameTextField.text = note.itemName
+         //    noteContentTextView.text = note.content
+      } else {
+         // 3
+         noteNameTextField.text = ""
+         //      noteContentTextView.text = ""
+      }
    }
-
 
 }

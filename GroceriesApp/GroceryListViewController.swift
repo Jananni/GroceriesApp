@@ -1,52 +1,85 @@
-//
-//  GroceryListViewController.swift
-//  GroceriesApp
-//
-//  Created by Jananni Rathnagiri on 7/15/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
-//
 
 import UIKit
+import RealmSwift
 
-class GroceryListViewController: UIViewController {
+class GroceryListViewController: UITableViewController {
 
-   @IBOutlet weak var tableView: UITableView!
-   var groceries: [GroceryItem]?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension GroceryListViewController: UITableViewDataSource {
-
-   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return groceries?.count ?? 0
+   var notes: Results<GroceryItem>!{
+      didSet {
+         tableView.reloadData()
+      }
    }
 
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("ListGroceryCell") as! ListGroceryCell
-      cell.groceryItem = groceries![indexPath.row]
+
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      notes = RealmHelper.retrieveNotes()
+   }
+
+
+   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return notes.count
+      // return 10
+   }
+
+   // 2
+   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+      let cell = tableView.dequeueReusableCellWithIdentifier("listGroceryCell", forIndexPath: indexPath) as! ListGroceryCell
+
+      // 1
+      let row = indexPath.row
+
+      // 2
+      let note = notes[row]
+
+      // 3
+      cell.noteTitleLabel.text = note.itemName
+
+      // 4
+      //    cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
+      
       return cell
    }
 
+
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      if let identifier = segue.identifier {
+         if identifier == "displayNote" {
+            print("Table view cell tapped")
+
+            // 1
+            let indexPath = tableView.indexPathForSelectedRow!
+            // 2
+            let note = notes[indexPath.row]
+            // 3
+            let displayNoteViewController = segue.destinationViewController as! PhotoViewController
+            // 4
+            displayNoteViewController.note = note
+
+         } else if identifier == "addNote" {
+            print("+ button tapped")
+         }
+      }
+   }
+
+   @IBAction func unwindToListNotesViewController(segue: UIStoryboardSegue) {
+
+      // for now, simply defining the method is sufficient.
+      // we'll add code later
+      print(notes)
+
+   }
+
+   // 1
+   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+      if editingStyle == .Delete {
+         //1
+         RealmHelper.deleteNote(notes[indexPath.row])
+         //2
+         notes = RealmHelper.retrieveNotes()
+      }
+   }
 }
+
+
