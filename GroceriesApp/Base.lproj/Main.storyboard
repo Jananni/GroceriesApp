@@ -22,15 +22,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="itemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-k3-d6Z">
-                                            <rect key="frame" x="21" y="11" width="254" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysLeft" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-mT-qhe">
+                                            <rect key="frame" x="455" y="19" width="117" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="117" id="8Z7-GZ-B7S"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="itemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-k3-d6Z">
+                                            <rect key="frame" x="20" y="19" width="254" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Hhf-mT-qhe" firstAttribute="centerY" secondItem="jt6-bk-jQP" secondAttribute="centerY" id="4Vp-Zv-GTd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Hhf-mT-qhe" secondAttribute="trailing" constant="20" id="Ksn-Je-jyp"/>
+                                        <constraint firstItem="Hhf-mT-qhe" firstAttribute="baseline" secondItem="vFB-k3-d6Z" secondAttribute="baseline" id="rZM-2n-Icl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="noteDaysLeft" destination="Hhf-mT-qhe" id="1qj-0P-G4e"/>
                                     <outlet property="noteTitleLabel" destination="vFB-k3-d6Z" id="xSQ-wW-Kke"/>
                                     <segue destination="Pl0-77-D5Y" kind="show" identifier="displayNote" id="qoc-ic-SgG"/>
                                 </connections>
@@ -43,7 +58,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Grocery List" id="Rlk-nx-zrK">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="8WC-AC-Ti5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="8WC-AC-Ti5">
+                            <connections>
+                                <segue destination="RZp-YC-A5z" kind="show" identifier="Settings" id="AhW-CD-obK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2sw-AX-wrq">
                             <connections>
                                 <segue destination="Pl0-77-D5Y" kind="show" identifier="addNote" id="Pqb-H2-tX8"/>
@@ -58,7 +77,7 @@
         <!--Settings-->
         <scene sceneID="d13-to-tyl">
             <objects>
-                <viewController title="Settings" id="RZp-YC-A5z" sceneMemberID="viewController">
+                <viewController title="Settings" id="RZp-YC-A5z" customClass="SettingsViewController" customModule="GroceriesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dSq-DI-8f0"/>
                         <viewControllerLayoutGuide type="bottom" id="FBO-XK-6lk"/>
@@ -146,18 +165,25 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="fMO-V1-TXa" kind="unwind" identifier="SaveSettings" unwindAction="unwindToListNotesViewController:" id="ZvT-pO-uiq"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="fMO-V1-TXa" kind="unwind" unwindAction="unwindToListNotesViewController:" id="zII-sd-mig"/>
-                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Back" id="env-vU-gdt">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="env-vU-gdt">
                             <connections>
-                                <segue destination="fMO-V1-TXa" kind="unwind" unwindAction="unwindToListNotesViewController:" id="SbL-78-wOy"/>
+                                <segue destination="fMO-V1-TXa" kind="unwind" identifier="CancelSettings" unwindAction="unwindToListNotesViewController:" id="Mp7-FA-np8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="notifsCheckbox" destination="G4M-cI-nHg" id="31w-jY-uA9"/>
+                        <outlet property="oneDayCheckbox" destination="Yjn-7o-IRz" id="nO0-hv-raA"/>
+                        <outlet property="thatDayCheckbox" destination="2DV-tv-FP6" id="9cM-Pa-QAU"/>
+                        <outlet property="threeDaysCheckbox" destination="wwp-tY-l3X" id="F10-S4-qut"/>
+                        <outlet property="twoDaysCheckbox" destination="24k-gx-cAW" id="jGl-Yu-wEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3g-2b-R4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fMO-V1-TXa" userLabel="Exit" sceneMemberID="exit"/>
@@ -180,8 +206,8 @@
                                 <rect key="frame" x="313" y="125" width="40" height="40"/>
                                 <state key="normal" image="Old Time Camera"/>
                                 <connections>
-                                    <action selector="CameraAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="3HK-M1-dMY"/>
-                                    <segue destination="K2k-Mp-CxI" kind="show" id="T5g-lx-mFl"/>
+                                    <action selector="CameraAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="uY1-fY-5yQ"/>
+                                    <segue destination="K2k-Mp-CxI" kind="show" identifier="CameraOne" id="e7w-4z-yIv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Output: This food expires on this day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSK-Nc-V5j">
@@ -206,7 +232,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiration Date:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-1h-kcx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-1h-kcx">
                                 <rect key="frame" x="48" y="240" width="74" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,8 +242,8 @@
                                 <rect key="frame" x="275" y="253" width="40" height="40"/>
                                 <state key="normal" image="Old Time Camera"/>
                                 <connections>
-                                    <action selector="CameratwoAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="CyT-dX-tqV"/>
-                                    <segue destination="K2k-Mp-CxI" kind="show" id="xFv-nT-Ybu"/>
+                                    <action selector="CameraTwoAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="HDB-nL-kBd"/>
+                                    <segue destination="K2k-Mp-CxI" kind="show" identifier="CameraTwo" id="4zH-aS-bRb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -239,8 +265,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="Camera" destination="Jll-VK-XhI" id="0QY-PR-sk7"/>
-                        <outlet property="Cameratwo" destination="L5Z-4B-TNn" id="DIw-07-BN4"/>
+                        <outlet property="Camera" destination="Jll-VK-XhI" id="3C2-TY-X2F"/>
+                        <outlet property="CameraTwo" destination="L5Z-4B-TNn" id="z3A-xV-6rR"/>
                         <outlet property="noteDateTextField" destination="kcE-Wl-T96" id="ClQ-To-QEg"/>
                         <outlet property="noteNameTextField" destination="16u-Ne-455" id="ppZ-mT-cDI"/>
                         <outlet property="saveButton" destination="3Iv-CG-qHT" id="1Xg-Eo-yIO"/>
@@ -263,14 +289,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="stG-Mm-SAD">
-                                <rect key="frame" x="20" y="72" width="560" height="508"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="stG-Mm-SAD">
+                                <rect key="frame" x="20" y="80" width="374" height="591"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="stG-Mm-SAD" firstAttribute="leading" secondItem="jxy-nQ-KSe" secondAttribute="leadingMargin" id="GeF-o7-xdW"/>
-                            <constraint firstItem="Lyv-XF-RJB" firstAttribute="top" secondItem="stG-Mm-SAD" secondAttribute="bottom" constant="58" id="KLf-Qp-Crb"/>
+                            <constraint firstItem="stG-Mm-SAD" firstAttribute="leading" secondItem="jxy-nQ-KSe" secondAttribute="leadingMargin" id="8Wr-5H-XQz"/>
+                            <constraint firstItem="stG-Mm-SAD" firstAttribute="top" secondItem="DHR-WH-gQd" secondAttribute="bottom" constant="16" id="Fni-pO-AEr"/>
+                            <constraint firstItem="Lyv-XF-RJB" firstAttribute="top" secondItem="stG-Mm-SAD" secondAttribute="bottom" constant="21" id="HiW-s6-A1i"/>
+                            <constraint firstItem="stG-Mm-SAD" firstAttribute="trailing" secondItem="jxy-nQ-KSe" secondAttribute="trailingMargin" id="ZHG-tK-sBo"/>
                         </constraints>
                     </view>
                     <connections>
@@ -279,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gN-CL-sAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="480"/>
+            <point key="canvasLocation" x="2333" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jqt-sZ-RnQ">
@@ -304,7 +332,7 @@
         <image name="Old Time Camera" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qoc-ic-SgG"/>
-        <segue reference="xFv-nT-Ybu"/>
+        <segue reference="Pqb-H2-tX8"/>
+        <segue reference="4zH-aS-bRb"/>
     </inferredMetricsTieBreakers>
 </document>

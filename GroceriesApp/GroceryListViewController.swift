@@ -19,25 +19,20 @@ class GroceryListViewController: UITableViewController {
 
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return notes.count
-      // return 10
    }
 
-   // 2
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
       let cell = tableView.dequeueReusableCellWithIdentifier("listGroceryCell", forIndexPath: indexPath) as! ListGroceryCell
 
-      // 1
       let row = indexPath.row
 
-      // 2
       let note = notes[row]
 
-      // 3
       cell.noteTitleLabel.text = note.itemName
 
-      // 4
-      //    cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
+      cell.noteDaysLeft.text = String(note.daysLeft)
+      //  cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
       
       return cell
    }
@@ -59,6 +54,8 @@ class GroceryListViewController: UITableViewController {
 
          } else if identifier == "addNote" {
             print("+ button tapped")
+         } else if identifier == "Settings" {
+            print("Settings")
          }
       }
    }
@@ -67,9 +64,9 @@ class GroceryListViewController: UITableViewController {
 
       // for now, simply defining the method is sufficient.
       // we'll add code later
-      print(notes)
 
    }
+
 
    // 1
    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

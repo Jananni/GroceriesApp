@@ -12,9 +12,9 @@ import RealmSwift
 
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-
    @IBOutlet weak var Camera: UIButton!
-   @IBOutlet weak var Cameratwo: UIButton!
+
+   @IBOutlet weak var CameraTwo: UIButton!
 
    @IBOutlet weak var ImageDisplay: UIImageView!
 
@@ -26,6 +26,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
 
    var note: GroceryItem?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
 
 
-
    @IBAction func CameraAction(sender: UIButton) {
+
       let picker = UIImagePickerController()
       picker.delegate = self
       picker.sourceType = .Camera
@@ -48,8 +49,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
    }
 
-   @IBAction func CameratwoAction(sender: AnyObject) {
-
+   @IBAction func CameraTwoAction(sender: UIButton) {
       let picker = UIImagePickerController()
       picker.delegate = self
       picker.sourceType = .Camera
@@ -57,48 +57,46 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
 
    }
-
-
 
    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
       ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
    }
 
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController
-      if segue.identifier == "Save" {
-         // if note exists, update title and content
-         if let note = note {
-            // 1
-            let newNote = GroceryItem()
-            newNote.itemName = noteNameTextField.text ?? ""
-            //    newNote.daysLeft = noteContentTextView.text ?? ""
-            RealmHelper.updateNote(note, newNote: newNote)
-         } else {
-            // if note does not exist, create new note
-            let note = GroceryItem()
-            note.itemName = noteNameTextField.text ?? ""
-            //    note.content = noteContentTextView.text ?? ""
-            //  note.modificationTime = NSDate()
-            // 2
-            RealmHelper.addNote(note)
+      print("reached prepareForSegue")
+      if segue.identifier != "Camera" || segue.identifier != "CameraTwo"
+      {
+         let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController
+         if segue.identifier == "Save" {
+            // if note exists, update title and content
+            if let note = note {
+               // 1
+               let newNote = GroceryItem()
+               newNote.itemName = noteNameTextField.text ?? ""
+               newNote.daysLeft = Int(noteDateTextField.text!) ?? 0  //Convert String to int
+               RealmHelper.updateNote(note, newNote: newNote)
+            } else {
+               // if note does not exist, create new note
+               let note = GroceryItem()
+               note.itemName = noteNameTextField.text ?? ""
+               note.daysLeft = Int(noteDateTextField.text!) ?? 0 //Convert String to int
+               //  note.modificationTime = NSDate()
+               RealmHelper.addNote(note)
+            }
+            listNotesTableViewController.notes = RealmHelper.retrieveNotes()
          }
-         // 3
-         listNotesTableViewController.notes = RealmHelper.retrieveNotes()
       }
    }
 
    override func viewWillAppear(animated: Bool) {
       super.viewWillAppear(animated)
-      // 1
       if let note = note {
-         // 2
          noteNameTextField.text = note.itemName
-         //    noteContentTextView.text = note.content
+         noteDateTextField.text = String(note.daysLeft)
+
       } else {
-         // 3
          noteNameTextField.text = ""
-         //      noteContentTextView.text = ""
+         noteDateTextField.text = ""
       }
    }
 

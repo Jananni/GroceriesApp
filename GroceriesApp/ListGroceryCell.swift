@@ -12,7 +12,6 @@ class ListGroceryCell: UITableViewCell {
 
    @IBOutlet weak var noteTitleLabel: UILabel!
 
-   @IBOutlet weak var noteDaysLeftLabel: UILabel!
-
+   @IBOutlet weak var noteDaysLeft: UILabel!
 
 }
