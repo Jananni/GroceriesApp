@@ -66,7 +66,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
       print("reached prepareForSegue")
       if segue.identifier != "Camera" || segue.identifier != "CameraTwo"
       {
-         let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController
+         let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController //error: WHY IS IT COMING HERE??
          if segue.identifier == "Save" {
             // if note exists, update title and content
             if let note = note {

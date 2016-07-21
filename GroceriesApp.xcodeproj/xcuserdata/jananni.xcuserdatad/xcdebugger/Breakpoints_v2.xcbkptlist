@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GroceriesApp/CheckBox.swift"
-            timestampString = "490121252.713882"
+            timestampString = "490833958.802761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "buttonClicked(_:)"
             landmarkType = "5">
          </BreakpointContent>

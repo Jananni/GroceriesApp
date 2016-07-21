@@ -12,6 +12,13 @@ import RealmSwift
 
 class SettingsViewController: UIViewController {
 
+   /*
+   var setting: Settings?{
+      didSet {
+         viewDidLoad()
+      }
+   }
+ */
    var setting: Settings?
 
    @IBOutlet weak var notifsCheckbox: CheckBox!
@@ -22,8 +29,13 @@ class SettingsViewController: UIViewController {
 
 
    override func viewDidLoad() {
-        super.viewDidLoad()
-
+      super.viewDidLoad()
+      setting = RealmHelper.retrieveSettings().last
+      //    setting?.notifications = false
+      // setting?.oneDay = false
+      // setting?.twoDays = false
+      // setting?.threeDays = false
+      //maybe???? idk hopefully kinda
         // Do any additional setup after loading the view.
     }
 
@@ -35,9 +47,10 @@ class SettingsViewController: UIViewController {
 
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      let listNotesTableViewController = segue.destinationViewController as! SettingsViewController
+      let listNotesTableViewController = segue.sourceViewController as! SettingsViewController // error
       if segue.identifier == "SaveSettings" {
          // if note exists, update title and content
+         print("bl")
          if let setting = setting {
             // 1
             let newSetting = Settings()
@@ -47,19 +60,31 @@ class SettingsViewController: UIViewController {
             newSetting.twoDays = twoDaysCheckbox.isChecked ?? false
             newSetting.threeDays = threeDaysCheckbox.isChecked ?? false
             RealmHelper.saveSettings(setting, newSettings: newSetting)
+            print(newSetting.notifications)
+            print(newSetting.thatDay)
+            print(newSetting.oneDay)
+            print(newSetting.twoDays)
+            print(newSetting.threeDays)
+         }
+         else
+         {
+            let setting = Settings()
+            setting.notifications = notifsCheckbox.isChecked ?? false
+            setting.thatDay = thatDayCheckbox.isChecked ?? false
+            setting.oneDay = oneDayCheckbox.isChecked ?? false
+            setting.twoDays = twoDaysCheckbox.isChecked ?? false
+            setting.threeDays = threeDaysCheckbox.isChecked ?? false
+            print(setting.notifications)
+            print(setting.thatDay)
+            print(setting.oneDay)
+            print(setting.twoDays)
+            print(setting.threeDays)
+            RealmHelper.addSettings(setting)
          }
          let temp: Results<Settings> = RealmHelper.retrieveSettings()
-         listNotesTableViewController.setting = temp[0]
+         listNotesTableViewController.setting = temp.last
+         //   print(listNotesTableViewController.setting?.notifications)
       }
    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

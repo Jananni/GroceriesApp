@@ -50,6 +50,13 @@ class RealmHelper {
       return realm.objects(Settings)
    }
 
+   static func addSettings(setting: Settings) {
+      let realm = try! Realm()
+      try! realm.write() {
+         realm.add(setting)
+      }
+   }
+
    static func saveSettings(settingsToBeUpdated: Settings, newSettings: Settings) {
       let realm = try! Realm()
       try! realm.write() {

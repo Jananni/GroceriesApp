@@ -10,20 +10,13 @@ import UIKit
 
 class CheckBox: UIButton {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
    let checkedButtonImage = UIImage(named: "checked")
    let uncheckedButtonImage = UIImage(named: "Unchecked")
 
-   var isChecked:Bool = false{
+   var isChecked:Bool = false {
       didSet{
-         if isChecked == true{
+         if isChecked == true {
             self.setImage(checkedButtonImage, forState: .Normal)
          }else{
             self.setImage(uncheckedButtonImage, forState: .Normal)
@@ -35,9 +28,6 @@ class CheckBox: UIButton {
       self.addTarget(self, action: #selector(CheckBox.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
       self.isChecked = false
    }
-
-
-
 
    func buttonClicked(sender:UIButton) {
       if(sender == self)
