@@ -14,7 +14,6 @@ class SettingsViewController: UIViewController {
 
    var setting: Settings?
 
-   @IBOutlet weak var notifsCheckbox: CheckBox!
    @IBOutlet weak var thatDayCheckbox: CheckBox!
    @IBOutlet weak var oneDayCheckbox: CheckBox!
    @IBOutlet weak var twoDaysCheckbox: CheckBox!
@@ -25,7 +24,6 @@ class SettingsViewController: UIViewController {
       super.viewDidLoad()
       setting = RealmHelper.retrieveSettings().last
 
-      notifsCheckbox.isChecked = (setting?.notifications)!
       thatDayCheckbox.isChecked = (setting?.thatDay)!
       oneDayCheckbox.isChecked = (setting?.oneDay)!
       twoDaysCheckbox.isChecked = (setting?.twoDays)!
@@ -46,7 +44,6 @@ class SettingsViewController: UIViewController {
          if let setting = setting {
             // 1
             let newSetting = Settings()
-            newSetting.notifications = notifsCheckbox.isChecked ?? false
             newSetting.thatDay = thatDayCheckbox.isChecked ?? false
             newSetting.oneDay = oneDayCheckbox.isChecked ?? false
             newSetting.twoDays = twoDaysCheckbox.isChecked ?? false
@@ -56,12 +53,10 @@ class SettingsViewController: UIViewController {
          else
          {
             let setting = Settings()
-            setting.notifications = notifsCheckbox.isChecked ?? false
             setting.thatDay = thatDayCheckbox.isChecked ?? false
             setting.oneDay = oneDayCheckbox.isChecked ?? false
             setting.twoDays = twoDaysCheckbox.isChecked ?? false
             setting.threeDays = threeDaysCheckbox.isChecked ?? false
-            notifsCheckbox.isChecked = setting.notifications
             RealmHelper.addSettings(setting)
          }
          let temp: Results<Settings> = RealmHelper.retrieveSettings()

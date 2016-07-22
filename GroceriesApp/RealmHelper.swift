@@ -61,6 +61,7 @@ class RealmHelper {
       let realm = try! Realm()
       try! realm.write() {
          settingsToBeUpdated.notifications = newSettings.notifications
+         settingsToBeUpdated.thatDay = newSettings.thatDay
          settingsToBeUpdated.oneDay = newSettings.oneDay
          settingsToBeUpdated.twoDays = newSettings.twoDays
          settingsToBeUpdated.threeDays = newSettings.threeDays

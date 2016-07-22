@@ -28,6 +28,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
    let notificationFacade = MRLocalNotificationFacade.defaultInstance()
 
+   let expDateAsNSDateComponents = NSDateComponents()
+
+
 
    var note: GroceryItem?
 
@@ -68,6 +71,10 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                // 1
                let newNote = GroceryItem()
                newNote.itemName = noteNameTextField.text ?? ""
+
+
+               //      expDateAsNSDateComponents.day =
+
                newNote.daysLeft = Int(noteDateTextField.text!) ?? 0  //Convert String to int
                RealmHelper.updateNote(note, newNote: newNote)
             } else {
@@ -122,5 +129,17 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
          noteDateTextField.text = ""
       }
    }
+
+   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+      view.endEditing(true)
+      super.touchesBegan(touches, withEvent: event)
+   }
+
+ /*  func disectDate() -> [Int]
+   {
+      var fullDateInput = noteDateTextField.text
+      var month = fullDateInput.
+   }
+ */
 
 }
