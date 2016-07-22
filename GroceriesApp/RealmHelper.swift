@@ -57,7 +57,7 @@ class RealmHelper {
       }
    }
 
-   static func saveSettings(settingsToBeUpdated: Settings, newSettings: Settings) {
+   static func updateSettings(settingsToBeUpdated: Settings, newSettings: Settings) {
       let realm = try! Realm()
       try! realm.write() {
          settingsToBeUpdated.notifications = newSettings.notifications

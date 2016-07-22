@@ -76,9 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F54FE0E41D41AF55002B9192 /* MRLocalNotificationFacade */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MRLocalNotificationFacade;
+			sourceTree = "<group>";
+		};
 		F55420CB1D34328000E78F88 = {
 			isa = PBXGroup;
 			children = (
+				F54FE0E41D41AF55002B9192 /* MRLocalNotificationFacade */,
 				F59AA5C51D387B1C00E53D53 /* Realm.framework */,
 				F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */,
 				F55420D61D34328000E78F88 /* GroceriesApp */,

@@ -12,13 +12,6 @@ import RealmSwift
 
 class SettingsViewController: UIViewController {
 
-   /*
-   var setting: Settings?{
-      didSet {
-         viewDidLoad()
-      }
-   }
- */
    var setting: Settings?
 
    @IBOutlet weak var notifsCheckbox: CheckBox!
@@ -31,12 +24,12 @@ class SettingsViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       setting = RealmHelper.retrieveSettings().last
-      //    setting?.notifications = false
-      // setting?.oneDay = false
-      // setting?.twoDays = false
-      // setting?.threeDays = false
-      //maybe???? idk hopefully kinda
-        // Do any additional setup after loading the view.
+
+      notifsCheckbox.isChecked = (setting?.notifications)!
+      thatDayCheckbox.isChecked = (setting?.thatDay)!
+      oneDayCheckbox.isChecked = (setting?.oneDay)!
+      twoDaysCheckbox.isChecked = (setting?.twoDays)!
+      threeDaysCheckbox.isChecked = (setting?.threeDays)!
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +43,6 @@ class SettingsViewController: UIViewController {
       let listNotesTableViewController = segue.sourceViewController as! SettingsViewController // error
       if segue.identifier == "SaveSettings" {
          // if note exists, update title and content
-         print("bl")
          if let setting = setting {
             // 1
             let newSetting = Settings()
@@ -59,12 +51,7 @@ class SettingsViewController: UIViewController {
             newSetting.oneDay = oneDayCheckbox.isChecked ?? false
             newSetting.twoDays = twoDaysCheckbox.isChecked ?? false
             newSetting.threeDays = threeDaysCheckbox.isChecked ?? false
-            RealmHelper.saveSettings(setting, newSettings: newSetting)
-            print(newSetting.notifications)
-            print(newSetting.thatDay)
-            print(newSetting.oneDay)
-            print(newSetting.twoDays)
-            print(newSetting.threeDays)
+            RealmHelper.updateSettings(setting, newSettings: newSetting)
          }
          else
          {
@@ -74,16 +61,11 @@ class SettingsViewController: UIViewController {
             setting.oneDay = oneDayCheckbox.isChecked ?? false
             setting.twoDays = twoDaysCheckbox.isChecked ?? false
             setting.threeDays = threeDaysCheckbox.isChecked ?? false
-            print(setting.notifications)
-            print(setting.thatDay)
-            print(setting.oneDay)
-            print(setting.twoDays)
-            print(setting.threeDays)
+            notifsCheckbox.isChecked = setting.notifications
             RealmHelper.addSettings(setting)
          }
          let temp: Results<Settings> = RealmHelper.retrieveSettings()
          listNotesTableViewController.setting = temp.last
-         //   print(listNotesTableViewController.setting?.notifications)
       }
    }
 
