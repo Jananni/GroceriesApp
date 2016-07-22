@@ -72,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-vY-6ul" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="427"/>
+            <point key="canvasLocation" x="1153" y="518"/>
         </scene>
         <!--Settings-->
         <scene sceneID="d13-to-tyl">
@@ -86,59 +86,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-QU-lxC">
-                                <rect key="frame" x="200" y="198" width="97" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send it:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-8c-Sbw">
-                                <rect key="frame" x="75" y="306" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="That day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxW-LM-k1i">
-                                <rect key="frame" x="200" y="361" width="96" height="21"/>
+                                <rect key="frame" x="200" y="178" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 day earlier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDM-NJ-ptr">
-                                <rect key="frame" x="200" y="407" width="131" height="21"/>
+                                <rect key="frame" x="200" y="236" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 days earlier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jY-9f-iG1">
-                                <rect key="frame" x="200" y="447" width="149" height="21"/>
+                                <rect key="frame" x="200" y="285" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 days earlier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-Kh-5sd">
-                                <rect key="frame" x="200" y="487" width="149" height="21"/>
+                                <rect key="frame" x="200" y="343" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4M-cI-nHg" userLabel="NotifsCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
-                                <rect key="frame" x="119" y="189" width="30" height="30"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DV-tv-FP6" userLabel="ThatdayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
-                                <rect key="frame" x="119" y="352" width="30" height="30"/>
+                                <rect key="frame" x="119" y="174" width="30" height="30"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjn-7o-IRz" userLabel="OnedayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
-                                <rect key="frame" x="119" y="398" width="30" height="30"/>
+                                <rect key="frame" x="119" y="227" width="30" height="30"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24k-gx-cAW" userLabel="TwodayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
-                                <rect key="frame" x="119" y="438" width="30" height="30"/>
+                                <rect key="frame" x="119" y="276" width="30" height="30"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-tY-l3X" userLabel="ThreedayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
-                                <rect key="frame" x="119" y="483" width="30" height="30"/>
+                                <rect key="frame" x="119" y="320" width="30" height="30"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVs-eD-Hnk">
-                                <rect key="frame" x="75" y="135" width="73" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send notifications:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-8c-Sbw">
+                                <rect key="frame" x="75" y="128" width="143" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -169,7 +154,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="notifsCheckbox" destination="G4M-cI-nHg" id="31w-jY-uA9"/>
                         <outlet property="oneDayCheckbox" destination="Yjn-7o-IRz" id="nO0-hv-raA"/>
                         <outlet property="thatDayCheckbox" destination="2DV-tv-FP6" id="9cM-Pa-QAU"/>
                         <outlet property="threeDaysCheckbox" destination="wwp-tY-l3X" id="F10-S4-qut"/>
@@ -193,53 +177,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jll-VK-XhI">
-                                <rect key="frame" x="310" y="125" width="40" height="40"/>
-                                <state key="normal" image="Old Time Camera"/>
-                                <connections>
-                                    <action selector="CameraAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="uY1-fY-5yQ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-H4-1d4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-H4-1d4">
                                 <rect key="frame" x="48" y="139" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16u-Ne-455">
-                                <rect key="frame" x="130" y="130" width="161" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16u-Ne-455">
+                                <rect key="frame" x="100" y="135" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-Wl-T96">
-                                <rect key="frame" x="130" y="230" width="161" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-Wl-T96">
+                                <rect key="frame" x="125" y="211" width="172" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="Lgv-Uz-Zyj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-1h-kcx">
-                                <rect key="frame" x="48" y="217" width="74" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-1h-kcx">
+                                <rect key="frame" x="48" y="217" width="69" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-4B-TNn">
-                                <rect key="frame" x="310" y="225" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-Ys-huh">
+                                <rect key="frame" x="92" y="281" width="234" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="h94-zW-2ng"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkU-hQ-FvY" userLabel="NotifsCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="92" y="497" width="30" height="30"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-vB-HvX">
+                                <rect key="frame" x="157" y="506" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="yyR-bA-zxz">
+                                <rect key="frame" x="0.0" y="550" width="414" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="FVo-pP-Spr"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="490902678.39543498">
+                                    <!--2016-07-22 17:51:18 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-4B-TNn">
+                                <rect key="frame" x="310" y="206" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="W1s-SV-zp4"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZlM-RW-axw"/>
+                                </constraints>
                                 <state key="normal" image="Old Time Camera"/>
                                 <connections>
                                     <action selector="CameraTwoAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="HDB-nL-kBd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-Ys-huh">
-                                <rect key="frame" x="70" y="296" width="274" height="212"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Output: This food expires on this day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSK-Nc-V5j">
-                                <rect key="frame" x="65" y="529" width="285" height="98"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="top" secondItem="kcE-Wl-T96" secondAttribute="bottom" constant="40" id="1MX-bL-s6U"/>
+                            <constraint firstAttribute="trailing" secondItem="yyR-bA-zxz" secondAttribute="trailing" id="1Q4-vX-xXu"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="SkU-hQ-FvY" secondAttribute="leading" id="1nO-oh-eYO"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="72" id="6yo-BG-CXk"/>
+                            <constraint firstItem="GE8-H4-1d4" firstAttribute="leading" secondItem="3Mx-1h-kcx" secondAttribute="leading" id="BRF-N8-BTg"/>
+                            <constraint firstItem="yyR-bA-zxz" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leading" id="Jbh-hy-KYd"/>
+                            <constraint firstItem="VXB-vB-HvX" firstAttribute="bottom" secondItem="SkU-hQ-FvY" secondAttribute="bottom" id="O9T-B0-Th7"/>
+                            <constraint firstItem="SkU-hQ-FvY" firstAttribute="top" secondItem="WCb-Ys-huh" secondAttribute="bottom" constant="60" id="VMJ-w7-BKz"/>
+                            <constraint firstItem="L5Z-4B-TNn" firstAttribute="leading" secondItem="kcE-Wl-T96" secondAttribute="trailing" constant="13" id="cCt-bv-BsJ"/>
+                            <constraint firstItem="kcE-Wl-T96" firstAttribute="centerY" secondItem="3Mx-1h-kcx" secondAttribute="centerY" id="cu9-c9-dzq"/>
+                            <constraint firstItem="L5Z-4B-TNn" firstAttribute="centerY" secondItem="kcE-Wl-T96" secondAttribute="centerY" id="fkG-di-stt"/>
+                            <constraint firstItem="GE8-H4-1d4" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="28" id="jFY-zr-61M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WCb-Ys-huh" secondAttribute="trailing" constant="68" id="n7Q-7G-kej"/>
+                            <constraint firstItem="GE8-H4-1d4" firstAttribute="top" secondItem="fpf-Sm-vbL" secondAttribute="bottom" constant="75" id="r2Y-S4-BMm"/>
+                            <constraint firstItem="3Mx-1h-kcx" firstAttribute="top" secondItem="GE8-H4-1d4" secondAttribute="bottom" constant="57" id="rqw-0w-Cdd"/>
+                            <constraint firstItem="L5Z-4B-TNn" firstAttribute="trailing" secondItem="16u-Ne-455" secondAttribute="trailing" id="tXW-6s-sGu"/>
+                            <constraint firstItem="kcE-Wl-T96" firstAttribute="leading" secondItem="3Mx-1h-kcx" secondAttribute="trailing" constant="8" symbolic="YES" id="toa-UZ-OQR"/>
+                            <constraint firstItem="VXB-vB-HvX" firstAttribute="leading" secondItem="SkU-hQ-FvY" secondAttribute="trailing" constant="35" id="v8o-DH-IgP"/>
+                            <constraint firstItem="yyR-bA-zxz" firstAttribute="top" secondItem="VXB-vB-HvX" secondAttribute="bottom" constant="23" id="vyc-Uy-gPh"/>
+                            <constraint firstItem="kcE-Wl-T96" firstAttribute="top" secondItem="16u-Ne-455" secondAttribute="bottom" constant="46" id="xa0-pW-7ys"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Item" id="yha-gb-cvw">
@@ -257,18 +278,19 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="Camera" destination="Jll-VK-XhI" id="3C2-TY-X2F"/>
                         <outlet property="CameraTwo" destination="L5Z-4B-TNn" id="z3A-xV-6rR"/>
+                        <outlet property="datePicker" destination="yyR-bA-zxz" id="shR-jx-s0w"/>
                         <outlet property="imageDisplay" destination="WCb-Ys-huh" id="WZz-CW-nJ5"/>
                         <outlet property="noteDateTextField" destination="kcE-Wl-T96" id="ClQ-To-QEg"/>
                         <outlet property="noteNameTextField" destination="16u-Ne-455" id="ppZ-mT-cDI"/>
+                        <outlet property="notificationCheckbox" destination="SkU-hQ-FvY" id="pXz-Gr-YBt"/>
                         <outlet property="saveButton" destination="3Iv-CG-qHT" id="1Xg-Eo-yIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFn-rJ-a8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i4w-nC-3N1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1760" y="495"/>
+            <point key="canvasLocation" x="1769" y="586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jqt-sZ-RnQ">

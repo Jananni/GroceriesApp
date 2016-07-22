@@ -12,8 +12,6 @@ import RealmSwift
 
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-   @IBOutlet weak var Camera: UIButton!
-
    @IBOutlet weak var CameraTwo: UIButton!
 
    @IBOutlet weak var imageDisplay: UIImageView!
@@ -23,6 +21,12 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
    @IBOutlet weak var noteDateTextField: UITextField!
 
    @IBOutlet weak var saveButton: UIBarButtonItem!
+
+   @IBOutlet weak var notificationCheckbox: CheckBox!
+
+   @IBOutlet weak var datePicker: UIDatePicker!
+
+   let notificationFacade = MRLocalNotificationFacade.defaultInstance()
 
 
    var note: GroceryItem?
@@ -39,15 +43,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
 
-
-   @IBAction func CameraAction(sender: UIButton) {
-
-      let picker = UIImagePickerController()
-      picker.delegate = self
-      picker.sourceType = .Camera
-      presentViewController(picker, animated: true, completion: nil)
-
-   }
 
    @IBAction func CameraTwoAction(sender: UIButton) {
       let picker = UIImagePickerController()
@@ -80,6 +75,34 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                let note = GroceryItem()
                note.itemName = noteNameTextField.text ?? ""
                note.daysLeft = Int(noteDateTextField.text!) ?? 0 //Convert String to int
+
+               //adds notification
+
+               if notificationCheckbox.isChecked
+               {
+
+                  var category: String?
+
+                  let notification = notificationFacade.buildNotificationWithDate(datePicker.date, timeZone: false, category: category, userInfo: nil)
+                  notificationFacade.customizeNotificationAlert(notification, title: noteNameTextField.text, body: "eat by" + noteDateTextField.text!, action: "accept", launchImage: nil)
+                  // show error alert if needed
+                  do {
+                     try notificationFacade.canScheduleNotification(notification, withRecovery: false)
+                  }
+                  catch {
+                     let alert = notificationFacade.buildAlertControlForError(error as NSError)
+                     notificationFacade.showAlertController(alert)
+                  }
+                  // schedule notification if possible
+                  do {
+                     try notificationFacade.scheduleNotification(notification)
+                     navigationController?.popViewControllerAnimated(true)
+                  }
+                  catch {
+
+                  }
+               }
+
                //  note.modificationTime = NSDate()
                RealmHelper.addNote(note)
             }

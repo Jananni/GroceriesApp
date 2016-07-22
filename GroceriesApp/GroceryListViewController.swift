@@ -14,6 +14,10 @@ class GroceryListViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       notes = RealmHelper.retrieveNotes()
+      if !UIApplication.sharedApplication().isRegisteredForRemoteNotifications(){
+         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
+         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+      }
    }
 
 

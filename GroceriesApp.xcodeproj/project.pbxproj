@@ -12,6 +12,7 @@
 		F55420DD1D34328000E78F88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55420DB1D34328000E78F88 /* Main.storyboard */; };
 		F55420DF1D34328000E78F88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55420DE1D34328000E78F88 /* Assets.xcassets */; };
 		F55420E21D34328000E78F88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55420E01D34328000E78F88 /* LaunchScreen.storyboard */; };
+		F5894C8B1D428C6B0061F33F /* MRLocalNotificationFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = F5894C8A1D428C6B0061F33F /* MRLocalNotificationFacade.m */; };
 		F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5B31D36B45700E53D53 /* ListGroceryCell.swift */; };
 		F59AA5BA1D36DBFF00E53D53 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5B91D36DBFF00E53D53 /* PhotoViewController.swift */; };
 		F59AA5BC1D38204C00E53D53 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5BB1D38204C00E53D53 /* GroceryItem.swift */; };
@@ -50,6 +51,9 @@
 		F55420DE1D34328000E78F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F55420E11D34328000E78F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F55420E31D34328000E78F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5894C891D428C6A0061F33F /* GroceriesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroceriesApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		F5894C8A1D428C6B0061F33F /* MRLocalNotificationFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRLocalNotificationFacade.m; sourceTree = "<group>"; };
+		F5894C8C1D428CEA0061F33F /* MRLocalNotificationFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRLocalNotificationFacade.h; sourceTree = "<group>"; };
 		F59AA5B31D36B45700E53D53 /* ListGroceryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGroceryCell.swift; sourceTree = "<group>"; };
 		F59AA5B91D36DBFF00E53D53 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F59AA5BB1D38204C00E53D53 /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
@@ -79,6 +83,9 @@
 		F54FE0E41D41AF55002B9192 /* MRLocalNotificationFacade */ = {
 			isa = PBXGroup;
 			children = (
+				F5894C8A1D428C6B0061F33F /* MRLocalNotificationFacade.m */,
+				F5894C891D428C6A0061F33F /* GroceriesApp-Bridging-Header.h */,
+				F5894C8C1D428CEA0061F33F /* MRLocalNotificationFacade.h */,
 			);
 			path = MRLocalNotificationFacade;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 				F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */,
 				F59AA5BC1D38204C00E53D53 /* GroceryItem.swift in Sources */,
 				F59AA5C21D38403700E53D53 /* NSDate+convertToString.swift in Sources */,
+				F5894C8B1D428C6B0061F33F /* MRLocalNotificationFacade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MRLocalNotificationFacade/GroceriesApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -357,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MRLocalNotificationFacade/GroceriesApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
