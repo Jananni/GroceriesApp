@@ -16,7 +16,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
    @IBOutlet weak var CameraTwo: UIButton!
 
-   @IBOutlet weak var ImageDisplay: UIImageView!
+   @IBOutlet weak var imageDisplay: UIImageView!
 
    @IBOutlet weak var noteNameTextField: UITextField!
 
@@ -59,12 +59,12 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
    }
 
    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-      ImageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+      imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
    }
 
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       print("reached prepareForSegue")
-      if segue.identifier != "Camera" || segue.identifier != "CameraTwo"
+      if segue.identifier != "Camera" && segue.identifier != "CameraTwo"
       {
          let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController //error: WHY IS IT COMING HERE??
          if segue.identifier == "Save" {

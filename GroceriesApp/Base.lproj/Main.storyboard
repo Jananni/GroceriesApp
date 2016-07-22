@@ -194,19 +194,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jll-VK-XhI">
-                                <rect key="frame" x="313" y="125" width="40" height="40"/>
+                                <rect key="frame" x="310" y="125" width="40" height="40"/>
                                 <state key="normal" image="Old Time Camera"/>
                                 <connections>
                                     <action selector="CameraAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="uY1-fY-5yQ"/>
-                                    <segue destination="K2k-Mp-CxI" kind="show" identifier="CameraOne" id="e7w-4z-yIv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Output: This food expires on this day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSK-Nc-V5j">
-                                <rect key="frame" x="65" y="393" width="285" height="98"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-H4-1d4">
                                 <rect key="frame" x="48" y="139" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -214,29 +207,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16u-Ne-455">
-                                <rect key="frame" x="108" y="130" width="183" height="30"/>
+                                <rect key="frame" x="130" y="130" width="161" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-Wl-T96">
-                                <rect key="frame" x="130" y="253" width="121" height="30"/>
+                                <rect key="frame" x="130" y="230" width="161" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-1h-kcx">
-                                <rect key="frame" x="48" y="240" width="74" height="56"/>
+                                <rect key="frame" x="48" y="217" width="74" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-4B-TNn">
-                                <rect key="frame" x="275" y="253" width="40" height="40"/>
+                                <rect key="frame" x="310" y="225" width="40" height="40"/>
                                 <state key="normal" image="Old Time Camera"/>
                                 <connections>
                                     <action selector="CameraTwoAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="HDB-nL-kBd"/>
-                                    <segue destination="K2k-Mp-CxI" kind="show" identifier="CameraTwo" id="4zH-aS-bRb"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-Ys-huh">
+                                <rect key="frame" x="70" y="296" width="274" height="212"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Output: This food expires on this day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSK-Nc-V5j">
+                                <rect key="frame" x="65" y="529" width="285" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -258,6 +259,7 @@
                     <connections>
                         <outlet property="Camera" destination="Jll-VK-XhI" id="3C2-TY-X2F"/>
                         <outlet property="CameraTwo" destination="L5Z-4B-TNn" id="z3A-xV-6rR"/>
+                        <outlet property="imageDisplay" destination="WCb-Ys-huh" id="WZz-CW-nJ5"/>
                         <outlet property="noteDateTextField" destination="kcE-Wl-T96" id="ClQ-To-QEg"/>
                         <outlet property="noteNameTextField" destination="16u-Ne-455" id="ppZ-mT-cDI"/>
                         <outlet property="saveButton" destination="3Iv-CG-qHT" id="1Xg-Eo-yIO"/>
@@ -267,38 +269,6 @@
                 <exit id="i4w-nC-3N1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1760" y="495"/>
-        </scene>
-        <!--Camera-->
-        <scene sceneID="vtr-ru-DfG">
-            <objects>
-                <viewController title="Camera" id="K2k-Mp-CxI" customClass="PhotoViewController" customModule="GroceriesApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DHR-WH-gQd"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lyv-XF-RJB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jxy-nQ-KSe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="stG-Mm-SAD">
-                                <rect key="frame" x="20" y="80" width="374" height="591"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="stG-Mm-SAD" firstAttribute="leading" secondItem="jxy-nQ-KSe" secondAttribute="leadingMargin" id="8Wr-5H-XQz"/>
-                            <constraint firstItem="stG-Mm-SAD" firstAttribute="top" secondItem="DHR-WH-gQd" secondAttribute="bottom" constant="16" id="Fni-pO-AEr"/>
-                            <constraint firstItem="Lyv-XF-RJB" firstAttribute="top" secondItem="stG-Mm-SAD" secondAttribute="bottom" constant="21" id="HiW-s6-A1i"/>
-                            <constraint firstItem="stG-Mm-SAD" firstAttribute="trailing" secondItem="jxy-nQ-KSe" secondAttribute="trailingMargin" id="ZHG-tK-sBo"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="ImageDisplay" destination="stG-Mm-SAD" id="dHP-sQ-M1I"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7gN-CL-sAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2333" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jqt-sZ-RnQ">
@@ -324,6 +294,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Pqb-H2-tX8"/>
-        <segue reference="4zH-aS-bRb"/>
     </inferredMetricsTieBreakers>
 </document>
