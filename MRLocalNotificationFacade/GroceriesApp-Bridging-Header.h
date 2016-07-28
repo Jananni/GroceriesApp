@@ -4,3 +4,5 @@
 
 
 #import "MRLocalNotificationFacade.h"
+
+#import <TesseractOCR/TesseractOCR.h>

@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
    var window: UIWindow?
    let notificationFacade = MRLocalNotificationFacade.defaultInstance()
@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
       let notification = notificationFacade.getNotificationFromLaunchOptions(launchOptions)
       notificationFacade.handleDidReceiveLocalNotification(notification)
+
       return true
    }
 

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4S2-Wv-j5V">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Grocery List-->
+        <scene sceneID="Ibg-oq-cYq">
+            <objects>
+                <tableViewController storyboardIdentifier="GroceryListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1bK-Zj-2GQ" customClass="GroceryListViewController" customModule="GroceriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="XLr-fU-0yo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listGroceryCell" rowHeight="60" id="gJU-fo-Iw2" userLabel="listGroceryCell" customClass="ListGroceryCell" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJU-fo-Iw2" id="jt6-bk-jQP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysLeft" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-mT-qhe">
+                                            <rect key="frame" x="455" y="19" width="117" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="117" id="8Z7-GZ-B7S"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="itemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-k3-d6Z">
+                                            <rect key="frame" x="20" y="19" width="254" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Hhf-mT-qhe" firstAttribute="centerY" secondItem="jt6-bk-jQP" secondAttribute="centerY" id="4Vp-Zv-GTd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Hhf-mT-qhe" secondAttribute="trailing" constant="20" id="Ksn-Je-jyp"/>
+                                        <constraint firstItem="Hhf-mT-qhe" firstAttribute="baseline" secondItem="vFB-k3-d6Z" secondAttribute="baseline" id="rZM-2n-Icl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="noteDaysLeft" destination="Hhf-mT-qhe" id="1qj-0P-G4e"/>
+                                    <outlet property="noteTitleLabel" destination="vFB-k3-d6Z" id="xSQ-wW-Kke"/>
+                                    <segue destination="Pl0-77-D5Y" kind="show" identifier="displayNote" id="qoc-ic-SgG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="1bK-Zj-2GQ" id="3rE-Lo-wuU"/>
+                            <outlet property="delegate" destination="1bK-Zj-2GQ" id="q94-Ud-0tb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Grocery List" id="Rlk-nx-zrK">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="8WC-AC-Ti5">
+                            <connections>
+                                <segue destination="RZp-YC-A5z" kind="show" identifier="Settings" id="AhW-CD-obK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2sw-AX-wrq">
+                            <connections>
+                                <segue destination="Pl0-77-D5Y" kind="show" identifier="addNote" id="Pqb-H2-tX8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZI-vY-6ul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="518"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="d13-to-tyl">
+            <objects>
+                <viewController title="Settings" id="RZp-YC-A5z" customClass="SettingsViewController" customModule="GroceriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dSq-DI-8f0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FBO-XK-6lk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wqW-qY-zQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="That day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxW-LM-k1i">
+                                <rect key="frame" x="191" y="379" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 day earlier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDM-NJ-ptr">
+                                <rect key="frame" x="191" y="427" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 days earlier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jY-9f-iG1">
+                                <rect key="frame" x="191" y="465" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 days earlier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-Kh-5sd">
+                                <rect key="frame" x="191" y="508" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DV-tv-FP6" userLabel="ThatdayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="131" y="375" width="30" height="30"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjn-7o-IRz" userLabel="OnedayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="131" y="423" width="30" height="30"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24k-gx-cAW" userLabel="TwodayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="131" y="461" width="30" height="30"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwp-tY-l3X" userLabel="ThreedayCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="131" y="504" width="30" height="30"/>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="B22-ae-3Mi">
+                                <rect key="frame" x="125" y="121" width="381" height="209"/>
+                                <date key="date" timeIntervalSinceReferenceDate="491158038.28016597">
+                                    <!--2016-07-25 16:47:18 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="chooseDate:" destination="RZp-YC-A5z" eventType="valueChanged" id="FIf-gx-Ght"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-zc-QMx">
+                                <rect key="frame" x="54" y="128" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How early:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-Sn-ycS">
+                                <rect key="frame" x="54" y="355" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-8c-Sbw">
+                                <rect key="frame" x="249" y="83" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="JeP-Fc-UCk">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="IXl-f6-kmx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QIk-Wl-oKX">
+                                <rect key="frame" x="20" y="7" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fMO-V1-TXa" kind="unwind" identifier="SaveSettings" unwindAction="unwindToListNotesViewController:" id="ZvT-pO-uiq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="env-vU-gdt">
+                            <connections>
+                                <segue destination="fMO-V1-TXa" kind="unwind" identifier="CancelSettings" unwindAction="unwindToListNotesViewController:" id="Mp7-FA-np8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="B22-ae-3Mi" id="nyX-YU-D5G"/>
+                        <outlet property="oneDayCheckbox" destination="Yjn-7o-IRz" id="nO0-hv-raA"/>
+                        <outlet property="thatDayCheckbox" destination="2DV-tv-FP6" id="9cM-Pa-QAU"/>
+                        <outlet property="threeDaysCheckbox" destination="wwp-tY-l3X" id="F10-S4-qut"/>
+                        <outlet property="twoDaysCheckbox" destination="24k-gx-cAW" id="jGl-Yu-wEZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3g-2b-R4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fMO-V1-TXa" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="883" y="-200"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="hiV-qM-O63">
+            <objects>
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overCurrentContext" id="Pl0-77-D5Y" customClass="PhotoViewController" customModule="GroceriesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fpf-Sm-vbL"/>
+                        <viewControllerLayoutGuide type="bottom" id="rLf-Le-DAq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tTi-AX-PcB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-H4-1d4">
+                                <rect key="frame" x="48" y="97" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Food Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16u-Ne-455">
+                                <rect key="frame" x="100" y="92" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="typedName:" destination="Pl0-77-D5Y" eventType="editingDidEnd" id="mHn-9k-kib"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Days Left" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-Wl-T96">
+                                <rect key="frame" x="132" y="141" width="187" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="Lgv-Uz-Zyj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="typedDate:" destination="Pl0-77-D5Y" eventType="editingDidEnd" id="MWB-As-tdN"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-1h-kcx">
+                                <rect key="frame" x="48" y="147" width="77" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-4B-TNn">
+                                <rect key="frame" x="327" y="136" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="W1s-SV-zp4"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZlM-RW-axw"/>
+                                </constraints>
+                                <state key="normal" image="Old Time Camera"/>
+                                <connections>
+                                    <action selector="CameraTwoAction:" destination="Pl0-77-D5Y" eventType="touchUpInside" id="HDB-nL-kBd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add a notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-vB-HvX">
+                                <rect key="frame" x="140" y="506" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkU-hQ-FvY" userLabel="NotifsCheckbox" customClass="CheckBox" customModule="GroceriesApp" customModuleProvider="target">
+                                <rect key="frame" x="100" y="506" width="18" height="19"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czo-0u-pXR">
+                                <rect key="frame" x="57" y="609" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="will expire in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyU-g6-Bfe">
+                                <rect key="frame" x="144" y="609" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="daysLeft" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4X-Gl-WHr">
+                                <rect key="frame" x="245" y="609" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-Ys-huh">
+                                <rect key="frame" x="89" y="209" width="230" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="h94-zW-2ng"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="16u-Ne-455" firstAttribute="leading" secondItem="GE8-H4-1d4" secondAttribute="trailing" constant="8" id="13X-ql-1Lq"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="top" secondItem="kcE-Wl-T96" secondAttribute="bottom" constant="38" id="1MX-bL-s6U"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="SkU-hQ-FvY" secondAttribute="leading" constant="-11" id="1nO-oh-eYO"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="69" id="6yo-BG-CXk"/>
+                            <constraint firstItem="GE8-H4-1d4" firstAttribute="leading" secondItem="3Mx-1h-kcx" secondAttribute="leading" id="BRF-N8-BTg"/>
+                            <constraint firstItem="VXB-vB-HvX" firstAttribute="bottom" secondItem="SkU-hQ-FvY" secondAttribute="bottom" constant="2" id="O9T-B0-Th7"/>
+                            <constraint firstItem="SkU-hQ-FvY" firstAttribute="top" secondItem="WCb-Ys-huh" secondAttribute="bottom" constant="67" id="VMJ-w7-BKz"/>
+                            <constraint firstItem="L5Z-4B-TNn" firstAttribute="leading" secondItem="kcE-Wl-T96" secondAttribute="trailing" constant="8" id="cCt-bv-BsJ"/>
+                            <constraint firstItem="kcE-Wl-T96" firstAttribute="centerY" secondItem="3Mx-1h-kcx" secondAttribute="centerY" id="cu9-c9-dzq"/>
+                            <constraint firstItem="L5Z-4B-TNn" firstAttribute="centerY" secondItem="kcE-Wl-T96" secondAttribute="centerY" id="fkG-di-stt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="16u-Ne-455" secondAttribute="trailing" constant="44" id="hFn-hP-wqU"/>
+                            <constraint firstItem="GE8-H4-1d4" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="28" id="jFY-zr-61M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WCb-Ys-huh" secondAttribute="trailing" constant="75" id="n7Q-7G-kej"/>
+                            <constraint firstItem="GE8-H4-1d4" firstAttribute="top" secondItem="fpf-Sm-vbL" secondAttribute="bottom" constant="33" id="r2Y-S4-BMm"/>
+                            <constraint firstItem="3Mx-1h-kcx" firstAttribute="top" secondItem="GE8-H4-1d4" secondAttribute="bottom" constant="29" id="rqw-0w-Cdd"/>
+                            <constraint firstItem="L5Z-4B-TNn" firstAttribute="trailing" secondItem="16u-Ne-455" secondAttribute="trailing" constant="17" id="tXW-6s-sGu"/>
+                            <constraint firstItem="kcE-Wl-T96" firstAttribute="leading" secondItem="3Mx-1h-kcx" secondAttribute="trailing" constant="7" id="toa-UZ-OQR"/>
+                            <constraint firstItem="VXB-vB-HvX" firstAttribute="leading" secondItem="SkU-hQ-FvY" secondAttribute="trailing" constant="22" id="v8o-DH-IgP"/>
+                            <constraint firstItem="kcE-Wl-T96" firstAttribute="top" secondItem="16u-Ne-455" secondAttribute="bottom" constant="19" id="xa0-pW-7ys"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Item" id="yha-gb-cvw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y7u-vO-isz">
+                            <connections>
+                                <segue destination="i4w-nC-3N1" kind="unwind" identifier="Cancel" unwindAction="unwindToListNotesViewController:" id="oeQ-77-82s"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3Iv-CG-qHT">
+                            <connections>
+                                <segue destination="i4w-nC-3N1" kind="unwind" identifier="Save" unwindAction="unwindToListNotesViewController:" id="3Dj-Lc-nsf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="CameraTwo" destination="L5Z-4B-TNn" id="z3A-xV-6rR"/>
+                        <outlet property="daysLeftLabel" destination="L4X-Gl-WHr" id="VjP-yz-0fg"/>
+                        <outlet property="imageDisplay" destination="WCb-Ys-huh" id="WZz-CW-nJ5"/>
+                        <outlet property="itemNameLabel" destination="Czo-0u-pXR" id="0ar-Wd-0eb"/>
+                        <outlet property="noteDateTextField" destination="kcE-Wl-T96" id="ClQ-To-QEg"/>
+                        <outlet property="noteNameTextField" destination="16u-Ne-455" id="ppZ-mT-cDI"/>
+                        <outlet property="notificationCheckbox" destination="SkU-hQ-FvY" id="pXz-Gr-YBt"/>
+                        <outlet property="saveButton" destination="3Iv-CG-qHT" id="1Xg-Eo-yIO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFn-rJ-a8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="i4w-nC-3N1" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1769" y="586"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jqt-sZ-RnQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4S2-Wv-j5V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7hT-L6-iVq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1bK-Zj-2GQ" kind="relationship" relationship="rootViewController" id="6f1-2c-1Fx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QL-Wj-128" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518" y="486"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Old Time Camera" width="64" height="64"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pqb-H2-tX8"/>
+    </inferredMetricsTieBreakers>
+</document>

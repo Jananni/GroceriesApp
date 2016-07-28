@@ -19,15 +19,21 @@ class SettingsViewController: UIViewController {
    @IBOutlet weak var twoDaysCheckbox: CheckBox!
    @IBOutlet weak var threeDaysCheckbox: CheckBox!
 
+   @IBOutlet weak var datePicker: UIDatePicker!
+
+   @IBAction func chooseDate(sender: AnyObject) {
+      SettingsHelper.datePickerDate = datePicker.date
+   }
+
 
    override func viewDidLoad() {
       super.viewDidLoad()
       setting = RealmHelper.retrieveSettings().last
 
-      thatDayCheckbox.isChecked = (setting?.thatDay)!
-      oneDayCheckbox.isChecked = (setting?.oneDay)!
-      twoDaysCheckbox.isChecked = (setting?.twoDays)!
-      threeDaysCheckbox.isChecked = (setting?.threeDays)!
+      //   thatDayCheckbox.isChecked = (setting?.thatDay)!
+      // oneDayCheckbox.isChecked = (setting?.oneDay)!
+      // twoDaysCheckbox.isChecked = (setting?.twoDays)!
+      //  threeDaysCheckbox.isChecked = (setting?.threeDays)!
     }
 
     override func didReceiveMemoryWarning() {

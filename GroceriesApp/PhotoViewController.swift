@@ -10,54 +10,87 @@ import UIKit
 import MobileCoreServices
 import RealmSwift
 
+
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
    @IBOutlet weak var CameraTwo: UIButton!
-
-   @IBOutlet weak var imageDisplay: UIImageView!
-
+   @IBOutlet weak var imageDisplay: UIImageView!  //INSTEAD OF IMAGEVIEW
    @IBOutlet weak var noteNameTextField: UITextField!
-
    @IBOutlet weak var noteDateTextField: UITextField!
-
    @IBOutlet weak var saveButton: UIBarButtonItem!
-
    @IBOutlet weak var notificationCheckbox: CheckBox!
+   @IBOutlet weak var itemNameLabel: UILabel!
+   @IBOutlet weak var daysLeftLabel: UILabel!
+   @IBOutlet weak var textView: UITextView!
+   @IBOutlet weak var saveBarButton: UIBarButtonItem!
 
-   @IBOutlet weak var datePicker: UIDatePicker!
 
+
+   let picker = UIImagePickerController()   //INSTEAD OF IMAGEPICKER
    let notificationFacade = MRLocalNotificationFacade.defaultInstance()
-
    let expDateAsNSDateComponents = NSDateComponents()
-
-
-
+   var dateFromDatePicker: NSDate = SettingsHelper.datePickerDate
    var note: GroceryItem?
 
+   var activityIndicator:UIActivityIndicatorView!
+   var originalTopMargin:CGFloat!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+   override func viewDidLoad() {
+      super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+      //CHANGE FONT?
+      saveBarButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial", size: 15)!], forState: UIControlState.Normal)
+      picker.delegate = self
+
+   }
+
+   override func viewDidAppear(animated: Bool) {
+      super.viewDidAppear(animated)
+
+      //   originalTopMargin = topMarginConstraint.constant
+   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+   @IBAction func typedName(sender: AnyObject) {
+      itemNameLabel.text = noteNameTextField.text
+   }
+
+   @IBAction func typedDate(sender: AnyObject) {
+      daysLeftLabel.text = noteDateTextField.text
+   }
+
+
 
    @IBAction func CameraTwoAction(sender: UIButton) {
-      let picker = UIImagePickerController()
-      picker.delegate = self
+      // let picker = UIImagePickerController()
+      // picker.delegate = self
       picker.sourceType = .Camera
       presentViewController(picker, animated: true, completion: nil)
-
 
    }
 
    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-      imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+      let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+      imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+
+      print("a")
+
+      let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
+
+      print("b")
+
+      addActivityIndicator()
+
+      print("c")
+
+      dismissViewControllerAnimated(true, completion: {
+         self.performImageRecognition(scaledImage)
+      })
    }
 
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -90,7 +123,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
                   var category: String?
 
-                  let notification = notificationFacade.buildNotificationWithDate(datePicker.date, timeZone: false, category: category, userInfo: nil)
+                  let notification = notificationFacade.buildNotificationWithDate(dateFromDatePicker, timeZone: false, category: category, userInfo: nil)
                   notificationFacade.customizeNotificationAlert(notification, title: noteNameTextField.text, body: "eat by" + noteDateTextField.text!, action: "accept", launchImage: nil)
                   // show error alert if needed
                   do {
@@ -135,11 +168,107 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
       super.touchesBegan(touches, withEvent: event)
    }
 
- /*  func disectDate() -> [Int]
-   {
-      var fullDateInput = noteDateTextField.text
-      var month = fullDateInput.
-   }
- */
 
+   func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
+
+      var scaledSize = CGSizeMake(maxDimension, maxDimension)
+      var scaleFactor:CGFloat
+
+      if image.size.width > image.size.height {
+         scaleFactor = image.size.height / image.size.width
+         scaledSize.width = maxDimension
+         scaledSize.height = scaledSize.width * scaleFactor
+      } else {
+         scaleFactor = image.size.width / image.size.height
+         scaledSize.height = maxDimension
+         scaledSize.width = scaledSize.height * scaleFactor
+      }
+
+      UIGraphicsBeginImageContext(scaledSize)
+      image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
+      let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+
+      return scaledImage
+   }
+
+   // Activity Indicator methods
+
+   func addActivityIndicator() {
+      activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+      activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+      activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+      activityIndicator.startAnimating()
+      view.addSubview(activityIndicator)
+   }
+
+   func removeActivityIndicator() {
+      activityIndicator.removeFromSuperview()
+      activityIndicator = nil
+   }
+
+
+   // The remaining methods handle the keyboard resignation/
+   // move the view so that the first responders aren't hidden
+
+
+    func storeLanguageFile() {
+        print("sdf")
+        let fileManager: NSFileManager = NSFileManager.defaultManager()
+        let docsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        let path = NSURL(fileURLWithPath: docsDirectory).URLByAppendingPathComponent("/tessdata/eng.traineddata").absoluteString
+        if !fileManager.fileExistsAtPath(path) {
+            let data = NSData(contentsOfFile: NSBundle.mainBundle().resourcePath!.stringByAppendingString("/tessdata/eng.traineddata"))!
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(NSURL(fileURLWithPath: docsDirectory).URLByAppendingPathComponent("/tessdata").absoluteString, withIntermediateDirectories: true, attributes: nil)
+            }
+            catch { }
+            data.writeToFile(path, atomically: true)
+        }
+    }
+
+
+   func performImageRecognition(image: UIImage) {
+
+      let tesseract = G8Tesseract()
+
+      tesseract.language = "eng+fra"
+
+      tesseract.engineMode = .TesseractCubeCombined
+
+      tesseract.pageSegmentationMode = .Auto
+
+      tesseract.maximumRecognitionTime = 60.0
+
+      tesseract.image = image.g8_blackAndWhite()
+      tesseract.recognize()
+
+      textView.text = tesseract.recognizedText
+      print(tesseract.recognizedText)
+      textView.editable = true
+
+      removeActivityIndicator()
+   }
+
+
+   func imagePickerController(didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+      let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+      print("a")
+
+      let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
+
+      print("b")
+
+      addActivityIndicator()
+
+      print("c")
+
+      dismissViewControllerAnimated(true, completion: {
+        self.storeLanguageFile()
+        print("d")
+         self.performImageRecognition(scaledImage)
+      })
+   }
 }
+

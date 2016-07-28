@@ -60,7 +60,7 @@ class RealmHelper {
    static func updateSettings(settingsToBeUpdated: Settings, newSettings: Settings) {
       let realm = try! Realm()
       try! realm.write() {
-         settingsToBeUpdated.notifications = newSettings.notifications
+         //    settingsToBeUpdated.notifications = newSettings.notifications
          settingsToBeUpdated.thatDay = newSettings.thatDay
          settingsToBeUpdated.oneDay = newSettings.oneDay
          settingsToBeUpdated.twoDays = newSettings.twoDays

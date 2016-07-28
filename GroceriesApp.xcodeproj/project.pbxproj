@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F53DC7A21D468501002942F3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53DC7A11D468501002942F3 /* SettingsHelper.swift */; };
+		F53DC80B1D481A2C002942F3 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53DC80A1D481A2C002942F3 /* TesseractOCR.framework */; };
+		F53DC80D1D481A40002942F3 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F53DC80C1D481A40002942F3 /* tessdata */; };
+		F53DC80F1D481A76002942F3 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F53DC80E1D481A76002942F3 /* libstdc++.6.0.9.tbd */; };
+		F53DC8111D481A85002942F3 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53DC8101D481A85002942F3 /* CoreImage.framework */; };
 		F55420D81D34328000E78F88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55420D71D34328000E78F88 /* AppDelegate.swift */; };
 		F55420DA1D34328000E78F88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55420D91D34328000E78F88 /* ViewController.swift */; };
 		F55420DD1D34328000E78F88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55420DB1D34328000E78F88 /* Main.storyboard */; };
@@ -44,6 +49,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F53DC7A11D468501002942F3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
+		F53DC80A1D481A2C002942F3 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		F53DC80C1D481A40002942F3 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		F53DC80E1D481A76002942F3 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		F53DC8101D481A85002942F3 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F55420D41D34328000E78F88 /* GroceriesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55420D71D34328000E78F88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55420D91D34328000E78F88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53DC8111D481A85002942F3 /* CoreImage.framework in Frameworks */,
+				F53DC80F1D481A76002942F3 /* libstdc++.6.0.9.tbd in Frameworks */,
 				F59AA5C91D387B1C00E53D53 /* RealmSwift.framework in Frameworks */,
+				F53DC80B1D481A2C002942F3 /* TesseractOCR.framework in Frameworks */,
 				F59AA5C71D387B1C00E53D53 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F53DC8091D481A09002942F3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F53DC80C1D481A40002942F3 /* tessdata */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F54FE0E41D41AF55002B9192 /* MRLocalNotificationFacade */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +114,14 @@
 		F55420CB1D34328000E78F88 = {
 			isa = PBXGroup;
 			children = (
+				F53DC8101D481A85002942F3 /* CoreImage.framework */,
+				F53DC80E1D481A76002942F3 /* libstdc++.6.0.9.tbd */,
 				F54FE0E41D41AF55002B9192 /* MRLocalNotificationFacade */,
 				F59AA5C51D387B1C00E53D53 /* Realm.framework */,
 				F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */,
 				F55420D61D34328000E78F88 /* GroceriesApp */,
 				F55420D51D34328000E78F88 /* Products */,
+				F53DC80A1D481A2C002942F3 /* TesseractOCR.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +136,7 @@
 		F55420D61D34328000E78F88 /* GroceriesApp */ = {
 			isa = PBXGroup;
 			children = (
+				F53DC8091D481A09002942F3 /* Supporting Files */,
 				F55420D71D34328000E78F88 /* AppDelegate.swift */,
 				F55420D91D34328000E78F88 /* ViewController.swift */,
 				F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */,
@@ -127,6 +152,7 @@
 				F59AA5D21D3970B500E53D53 /* GroceryListViewController.swift */,
 				F5CD9FAB1D4028B500114F5A /* Settings.swift */,
 				F5CD9FAD1D4037A500114F5A /* SettingsViewController.swift */,
+				F53DC7A11D468501002942F3 /* SettingsHelper.swift */,
 			);
 			path = GroceriesApp;
 			sourceTree = "<group>";
@@ -194,6 +220,7 @@
 				F55420E21D34328000E78F88 /* LaunchScreen.storyboard in Resources */,
 				F55420DF1D34328000E78F88 /* Assets.xcassets in Resources */,
 				F55420DD1D34328000E78F88 /* Main.storyboard in Resources */,
+				F53DC80D1D481A40002942F3 /* tessdata in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +237,7 @@
 				F55420D81D34328000E78F88 /* AppDelegate.swift in Sources */,
 				F59AA5BA1D36DBFF00E53D53 /* PhotoViewController.swift in Sources */,
 				F5CD9FAC1D4028B500114F5A /* Settings.swift in Sources */,
+				F53DC7A21D468501002942F3 /* SettingsHelper.swift in Sources */,
 				F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */,
 				F59AA5BE1D383F4B00E53D53 /* RealmHelper.swift in Sources */,
 				F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */,
@@ -328,17 +356,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = GroceriesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -352,17 +383,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = GroceriesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
