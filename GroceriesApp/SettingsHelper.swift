@@ -13,7 +13,9 @@ import RealmSwift
 
 class SettingsHelper: Object {
 
-   static var datePickerDate = NSDate()
+    static var datePickerTime = NSDate()
+    static var datePickerHour = 0
+    static var datePickerMin = 0
 
 
    

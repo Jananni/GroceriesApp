@@ -62,13 +62,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Grocery List" id="Rlk-nx-zrK">
                         <barButtonItem key="leftBarButtonItem" image="settings" id="8WC-AC-Ti5">
-                            <color key="tintColor" red="0.22781633630000001" green="0.66765309340000001" blue="0.01334197302" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.28935138529999999" green="0.84799163509999997" blue="0.01694574867" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="RZp-YC-A5z" kind="show" identifier="Settings" id="AhW-CD-obK"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2sw-AX-wrq">
-                            <color key="tintColor" red="0.22781633630000001" green="0.66765309340000001" blue="0.01334197302" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.28935138529999999" green="0.84799163509999997" blue="0.01694574867" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Pl0-77-D5Y" kind="show" identifier="addNote" id="Pqb-H2-tX8"/>
                             </connections>
@@ -145,7 +145,7 @@
                                     <!--2016-07-25 16:47:18 +0000-->
                                 </date>
                                 <connections>
-                                    <action selector="chooseDate:" destination="RZp-YC-A5z" eventType="valueChanged" id="FIf-gx-Ght"/>
+                                    <action selector="chooseTime:" destination="RZp-YC-A5z" eventType="valueChanged" id="JqH-rD-oGa"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8l-zc-QMx">
@@ -154,7 +154,7 @@
                                 <color key="textColor" red="0.22781633630000001" green="0.66765309340000001" blue="0.01334197302" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-8c-Sbw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notifications:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-8c-Sbw">
                                 <rect key="frame" x="157" y="79" width="101" height="21"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,7 +171,10 @@
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="B22-ae-3Mi" firstAttribute="top" secondItem="dSq-DI-8f0" secondAttribute="bottom" constant="93" id="64b-vE-gPL"/>
+                            <constraint firstItem="X1o-8c-Sbw" firstAttribute="top" secondItem="dSq-DI-8f0" secondAttribute="bottom" constant="15" id="SFE-ae-Glv"/>
                             <constraint firstItem="FBO-XK-6lk" firstAttribute="top" secondItem="B22-ae-3Mi" secondAttribute="bottom" constant="347" id="duW-p1-jQ9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X1o-8c-Sbw" secondAttribute="trailing" constant="136" id="rEB-L2-udg"/>
+                            <constraint firstItem="X1o-8c-Sbw" firstAttribute="leading" secondItem="wqW-qY-zQ1" secondAttribute="leadingMargin" constant="137" id="vgm-Et-ikC"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -296,10 +299,10 @@
                                 <rect key="frame" x="108" y="209" width="199" height="199"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="temp" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-Bu-5e5">
-                                <rect key="frame" x="118" y="431" width="178" height="51"/>
+                                <rect key="frame" x="67" y="416" width="283" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="xkA-Fc-xFp"/>
+                                    <constraint firstAttribute="height" constant="66" id="xkA-Fc-xFp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -308,7 +311,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="16u-Ne-455" firstAttribute="top" secondItem="fpf-Sm-vbL" secondAttribute="bottom" constant="28" id="0Qp-G4-cLP"/>
-                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="centerX" secondItem="WCb-Ys-huh" secondAttribute="centerX" id="33p-6T-frJ"/>
+                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="centerX" secondItem="WCb-Ys-huh" secondAttribute="centerX" constant="1" id="33p-6T-frJ"/>
                             <constraint firstItem="VXB-vB-HvX" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="124" id="48p-7J-bOg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VXB-vB-HvX" secondAttribute="trailing" constant="106" id="4JU-nG-hV7"/>
                             <constraint firstItem="rLf-Le-DAq" firstAttribute="top" secondItem="Czo-0u-pXR" secondAttribute="bottom" constant="62" id="4hE-JT-vvQ"/>
@@ -320,7 +323,7 @@
                             <constraint firstItem="rLf-Le-DAq" firstAttribute="top" secondItem="L4X-Gl-WHr" secondAttribute="bottom" constant="62" id="KPm-ov-xxz"/>
                             <constraint firstItem="L4X-Gl-WHr" firstAttribute="top" secondItem="VXB-vB-HvX" secondAttribute="bottom" constant="90" id="L4w-sk-qhD"/>
                             <constraint firstItem="rLf-Le-DAq" firstAttribute="top" secondItem="QyU-g6-Bfe" secondAttribute="bottom" constant="62" id="Lzd-22-YR7"/>
-                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="top" secondItem="WCb-Ys-huh" secondAttribute="bottom" constant="23" id="NNg-B0-RE8"/>
+                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="top" secondItem="WCb-Ys-huh" secondAttribute="bottom" constant="8" id="NNg-B0-RE8"/>
                             <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="88" id="PD8-Kg-yny"/>
                             <constraint firstItem="QyU-g6-Bfe" firstAttribute="top" secondItem="VXB-vB-HvX" secondAttribute="bottom" constant="90" id="PKm-Y1-lwh"/>
                             <constraint firstItem="Czo-0u-pXR" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="37" id="R1u-AG-yr9"/>
@@ -338,20 +341,20 @@
                             <constraint firstItem="VXB-vB-HvX" firstAttribute="leading" secondItem="SkU-hQ-FvY" secondAttribute="trailing" constant="26" id="x7k-NE-9pB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L5Z-4B-TNn" secondAttribute="trailing" constant="27" id="xzk-3k-7rb"/>
                             <constraint firstItem="WCb-Ys-huh" firstAttribute="top" secondItem="kcE-Wl-T96" secondAttribute="bottom" constant="38" id="yIv-gs-23H"/>
-                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="98" id="zew-RI-ycE"/>
+                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="47" id="zew-RI-ycE"/>
                             <constraint firstItem="kcE-Wl-T96" firstAttribute="top" secondItem="16u-Ne-455" secondAttribute="bottom" constant="19" id="zuB-Zz-drf"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Item" id="yha-gb-cvw">
                         <barButtonItem key="leftBarButtonItem" image="delete_sign" width="5" id="y7u-vO-isz">
-                            <color key="tintColor" red="0.22781633630000001" green="0.66765309340000001" blue="0.01334197302" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.28935138529999999" green="0.84799163509999997" blue="0.01694574867" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="i4w-nC-3N1" kind="unwind" identifier="Cancel" unwindAction="unwindToListNotesViewController:" id="oeQ-77-82s"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="3Iv-CG-qHT">
-                            <color key="tintColor" red="0.22781633630000001" green="0.66765309340000001" blue="0.01334197302" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.28935138529999999" green="0.84799163509999997" blue="0.01694574867" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="i4w-nC-3N1" kind="unwind" identifier="Save" unwindAction="unwindToListNotesViewController:" id="3Dj-Lc-nsf"/>
                             </connections>

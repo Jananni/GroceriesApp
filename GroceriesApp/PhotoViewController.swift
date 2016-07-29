@@ -26,11 +26,12 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
 
 
-   let picker = UIImagePickerController()   //INSTEAD OF IMAGEPICKER
-   let notificationFacade = MRLocalNotificationFacade.defaultInstance()
-   let expDateAsNSDateComponents = NSDateComponents()
-   var dateFromDatePicker: NSDate = SettingsHelper.datePickerDate
-   var note: GroceryItem?
+    let picker = UIImagePickerController()   //INSTEAD OF IMAGEPICKER
+    let notificationFacade = MRLocalNotificationFacade.defaultInstance()
+
+    var dateFromDatePicker: NSDate = SettingsHelper.datePickerTime
+    //    var dateFromDatePickertemp: NSDate = NSDateComponents(coder: Settin)  //day from settings and time chosen
+    var note: GroceryItem?
 
    var activityIndicator:UIActivityIndicatorView!
    var originalTopMargin:CGFloat!
@@ -55,6 +56,50 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
 
+
+
+
+    func initializeDateWithTime(date:NSDate,hrs:Int,minutes:Int, day:Int) -> NSDate{
+        let today = date
+        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let dateComponents = gregorian.components([.Year, .Month, .Day], fromDate: today)
+
+        print(today)
+
+        dateComponents.hour = hrs
+        dateComponents.minute = minutes
+        dateComponents.day = dateComponents.day - day
+
+        let todayAtX = gregorian.dateFromComponents(dateComponents)
+        print(todayAtX)
+        return todayAtX!
+    }
+
+    func makeNotification(nsdate: NSDate) {
+        var category: String?
+
+        let notification = notificationFacade.buildNotificationWithDate(nsdate, timeZone: false, category: category, userInfo: nil)
+        notificationFacade.customizeNotificationAlert(notification, title: noteNameTextField.text, body: "eat by" + noteDateTextField.text!, action: "accept", launchImage: nil)
+        // show error alert if needed
+        do {
+            try notificationFacade.canScheduleNotification(notification, withRecovery: false)
+        }
+        catch {
+            let alert = notificationFacade.buildAlertControlForError(error as NSError)
+            notificationFacade.showAlertController(alert)
+        }
+        // schedule notification if possible
+        do {
+            try notificationFacade.scheduleNotification(notification)
+            navigationController?.popViewControllerAnimated(true)
+        }
+        catch {
+
+        }
+    }
+
+
+
    @IBAction func typedName(sender: AnyObject) {
       itemNameLabel.text = noteNameTextField.text
    }
@@ -74,23 +119,13 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
    }
 
    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-      let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
-
-      imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-
-      print("a")
-
-      let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
-
-      print("b")
-
-      addActivityIndicator()
-
-      print("c")
-
-      dismissViewControllerAnimated(true, completion: {
-         self.performImageRecognition(scaledImage)
-      })
+        let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
+        addActivityIndicator()
+        dismissViewControllerAnimated(true, completion: {
+            self.performImageRecognition(scaledImage)
+        })
    }
 
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -120,27 +155,29 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
                if notificationCheckbox.isChecked
                {
+                /*
+                    print("notifs checkbox clicked")
+                    var notifDate = NSDate()
 
-                  var category: String?
-
-                  let notification = notificationFacade.buildNotificationWithDate(dateFromDatePicker, timeZone: false, category: category, userInfo: nil)
-                  notificationFacade.customizeNotificationAlert(notification, title: noteNameTextField.text, body: "eat by" + noteDateTextField.text!, action: "accept", launchImage: nil)
-                  // show error alert if needed
-                  do {
-                     try notificationFacade.canScheduleNotification(notification, withRecovery: false)
-                  }
-                  catch {
-                     let alert = notificationFacade.buildAlertControlForError(error as NSError)
-                     notificationFacade.showAlertController(alert)
-                  }
-                  // schedule notification if possible
-                  do {
-                     try notificationFacade.scheduleNotification(notification)
-                     navigationController?.popViewControllerAnimated(true)
-                  }
-                  catch {
-
-                  }
+                    if SettingsViewController().oneDayCheckbox.isChecked
+                    {
+                        print("one day clicked")
+                        notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
+                        print(notifDate)
+                        makeNotification(notifDate)
+                        print("notification sent")
+                    }
+                    if SettingsViewController().twoDaysCheckbox.isChecked
+                    {
+                        notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
+                        makeNotification(notifDate)
+                    }
+                    if SettingsViewController().threeDaysCheckbox.isChecked
+                    {
+                        notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
+                        makeNotification(notifDate)
+                    }
+ */
                }
 
                //  note.modificationTime = NSDate()

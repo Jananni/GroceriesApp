@@ -21,14 +21,23 @@ class SettingsViewController: UIViewController {
 
    @IBOutlet weak var datePicker: UIDatePicker!
 
-   @IBAction func chooseDate(sender: AnyObject) {
-      SettingsHelper.datePickerDate = datePicker.date
+   @IBAction func chooseTime(sender: AnyObject) {
+      SettingsHelper.datePickerTime = datePicker.date
+      let calendar = NSCalendar.currentCalendar()
+      let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute] , fromDate: SettingsHelper.datePickerTime)
+
+      SettingsHelper.datePickerHour = components.hour
+      SettingsHelper.datePickerMin = components.minute
+    print(SettingsHelper.datePickerHour)
+    print(SettingsHelper.datePickerMin)
    }
 
 
    override func viewDidLoad() {
       super.viewDidLoad()
       setting = RealmHelper.retrieveSettings().last
+
+    datePicker.datePickerMode = UIDatePickerMode.Time
 
       //   thatDayCheckbox.isChecked = (setting?.thatDay)!
       // oneDayCheckbox.isChecked = (setting?.oneDay)!
