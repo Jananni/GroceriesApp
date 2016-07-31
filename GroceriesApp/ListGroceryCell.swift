@@ -10,8 +10,8 @@ import UIKit
 
 class ListGroceryCell: UITableViewCell {
 
-   @IBOutlet weak var noteTitleLabel: UILabel!
+    @IBOutlet weak var noteTitleLabel: UILabel!
 
-   @IBOutlet weak var noteDaysLeft: UILabel!
-
+    @IBOutlet weak var noteDaysLeft: UILabel!
+    
 }

@@ -12,37 +12,44 @@ import RealmSwift
 
 class SettingsViewController: UIViewController {
 
-   var setting: Settings?
+    var setting: Settings?
 
-   @IBOutlet weak var thatDayCheckbox: CheckBox!
-   @IBOutlet weak var oneDayCheckbox: CheckBox!
-   @IBOutlet weak var twoDaysCheckbox: CheckBox!
-   @IBOutlet weak var threeDaysCheckbox: CheckBox!
+    @IBOutlet weak var thatDayCheckbox: CheckBox!
+    @IBOutlet weak var oneDayCheckbox: CheckBox!
+    @IBOutlet weak var twoDaysCheckbox: CheckBox!
+    @IBOutlet weak var threeDaysCheckbox: CheckBox!
 
-   @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker!
 
-   @IBAction func chooseTime(sender: AnyObject) {
-      SettingsHelper.datePickerTime = datePicker.date
-      let calendar = NSCalendar.currentCalendar()
-      let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute] , fromDate: SettingsHelper.datePickerTime)
+    @IBAction func chooseTime(sender: AnyObject) {
+        SettingsHelper.datePickerTime = datePicker.date
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute] , fromDate: datePicker.date)
 
-      SettingsHelper.datePickerHour = components.hour
-      SettingsHelper.datePickerMin = components.minute
-    print(SettingsHelper.datePickerHour)
-    print(SettingsHelper.datePickerMin)
-   }
+        SettingsHelper.datePickerHour = components.hour
+        SettingsHelper.datePickerMin = components.minute
+        print(SettingsHelper.datePickerHour)
+        print(SettingsHelper.datePickerMin)
+    }
 
 
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      setting = RealmHelper.retrieveSettings().last
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setting = RealmHelper.retrieveSettings().last
 
-    datePicker.datePickerMode = UIDatePickerMode.Time
+        datePicker.datePickerMode = UIDatePickerMode.Time
 
-      //   thatDayCheckbox.isChecked = (setting?.thatDay)!
-      // oneDayCheckbox.isChecked = (setting?.oneDay)!
-      // twoDaysCheckbox.isChecked = (setting?.twoDays)!
-      //  threeDaysCheckbox.isChecked = (setting?.threeDays)!
+        thatDayCheckbox.isChecked = (setting?.thatDay)!
+        oneDayCheckbox.isChecked = (setting?.oneDay)!
+        twoDaysCheckbox.isChecked = (setting?.twoDays)!
+        threeDaysCheckbox.isChecked = (setting?.threeDays)!
+
+
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute] , fromDate: datePicker.date)
+
+        SettingsHelper.datePickerHour = components.hour
+        SettingsHelper.datePickerMin = components.minute
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,32 +58,32 @@ class SettingsViewController: UIViewController {
     }
 
 
-   
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      let listNotesTableViewController = segue.sourceViewController as! SettingsViewController // error
-      if segue.identifier == "SaveSettings" {
-         // if note exists, update title and content
-         if let setting = setting {
-            // 1
-            let newSetting = Settings()
-            newSetting.thatDay = thatDayCheckbox.isChecked ?? false
-            newSetting.oneDay = oneDayCheckbox.isChecked ?? false
-            newSetting.twoDays = twoDaysCheckbox.isChecked ?? false
-            newSetting.threeDays = threeDaysCheckbox.isChecked ?? false
-            RealmHelper.updateSettings(setting, newSettings: newSetting)
-         }
-         else
-         {
-            let setting = Settings()
-            setting.thatDay = thatDayCheckbox.isChecked ?? false
-            setting.oneDay = oneDayCheckbox.isChecked ?? false
-            setting.twoDays = twoDaysCheckbox.isChecked ?? false
-            setting.threeDays = threeDaysCheckbox.isChecked ?? false
-            RealmHelper.addSettings(setting)
-         }
-         let temp: Results<Settings> = RealmHelper.retrieveSettings()
-         listNotesTableViewController.setting = temp.last
-      }
-   }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let listNotesTableViewController = segue.sourceViewController as! SettingsViewController // error
+        if segue.identifier == "SaveSettings" {
+            // if note exists, update title and content
+            if let setting = setting {
+                // 1
+                let newSetting = Settings()
+                newSetting.thatDay = thatDayCheckbox.isChecked ?? false
+                newSetting.oneDay = oneDayCheckbox.isChecked ?? false
+                newSetting.twoDays = twoDaysCheckbox.isChecked ?? false
+                newSetting.threeDays = threeDaysCheckbox.isChecked ?? false
+                RealmHelper.updateSettings(setting, newSettings: newSetting)
+            }
+            else
+            {
+                let setting = Settings()
+                setting.thatDay = thatDayCheckbox.isChecked ?? false
+                setting.oneDay = oneDayCheckbox.isChecked ?? false
+                setting.twoDays = twoDaysCheckbox.isChecked ?? false
+                setting.threeDays = threeDaysCheckbox.isChecked ?? false
+                RealmHelper.addSettings(setting)
+            }
+            let temp: Results<Settings> = RealmHelper.retrieveSettings()
+            listNotesTableViewController.setting = temp.last
+        }
+    }
+    
 }

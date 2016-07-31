@@ -15,7 +15,7 @@ class GroceryItem: Object {
 
     dynamic var daysLeft: Int = 0
     dynamic var itemName: String = ""
-
-
-
+    
+    
+    
 }

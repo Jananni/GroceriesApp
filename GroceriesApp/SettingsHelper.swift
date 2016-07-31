@@ -13,10 +13,16 @@ import RealmSwift
 
 class SettingsHelper: Object {
 
+    //from settings
     static var datePickerTime = NSDate()
     static var datePickerHour = 0
     static var datePickerMin = 0
 
-
-   
+    //from adding item view controller
+    static var expirMonth = 0
+    static var expirDay = 0
+    static var expirYear = 0
+    
+    
+    
 }

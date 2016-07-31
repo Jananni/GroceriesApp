@@ -239,10 +239,10 @@
                                     <action selector="typedName:" destination="Pl0-77-D5Y" eventType="editingDidEnd" id="mHn-9k-kib"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Days Left" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-Wl-T96">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM-DD-YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-Wl-T96">
                                 <rect key="frame" x="132" y="141" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
                                     <action selector="typedDate:" destination="Pl0-77-D5Y" eventType="editingDidEnd" id="MWB-As-tdN"/>
                                 </connections>
@@ -296,7 +296,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-Ys-huh">
-                                <rect key="frame" x="108" y="209" width="199" height="199"/>
+                                <rect key="frame" x="132" y="258" width="150" height="150"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="temp" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-Bu-5e5">
                                 <rect key="frame" x="67" y="416" width="283" height="66"/>
@@ -307,11 +307,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take a picture of the product's expiration date.  If not accurate, type it in." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ak-QP-6l0">
+                                <rect key="frame" x="48" y="196" width="302" height="45"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="16u-Ne-455" firstAttribute="top" secondItem="fpf-Sm-vbL" secondAttribute="bottom" constant="28" id="0Qp-G4-cLP"/>
-                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="centerX" secondItem="WCb-Ys-huh" secondAttribute="centerX" constant="1" id="33p-6T-frJ"/>
+                            <constraint firstItem="wxH-Bu-5e5" firstAttribute="centerX" secondItem="WCb-Ys-huh" secondAttribute="centerX" constant="1.5" id="33p-6T-frJ"/>
                             <constraint firstItem="VXB-vB-HvX" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="124" id="48p-7J-bOg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VXB-vB-HvX" secondAttribute="trailing" constant="106" id="4JU-nG-hV7"/>
                             <constraint firstItem="rLf-Le-DAq" firstAttribute="top" secondItem="Czo-0u-pXR" secondAttribute="bottom" constant="62" id="4hE-JT-vvQ"/>
@@ -324,13 +330,13 @@
                             <constraint firstItem="L4X-Gl-WHr" firstAttribute="top" secondItem="VXB-vB-HvX" secondAttribute="bottom" constant="90" id="L4w-sk-qhD"/>
                             <constraint firstItem="rLf-Le-DAq" firstAttribute="top" secondItem="QyU-g6-Bfe" secondAttribute="bottom" constant="62" id="Lzd-22-YR7"/>
                             <constraint firstItem="wxH-Bu-5e5" firstAttribute="top" secondItem="WCb-Ys-huh" secondAttribute="bottom" constant="8" id="NNg-B0-RE8"/>
-                            <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="88" id="PD8-Kg-yny"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="112" id="PD8-Kg-yny"/>
                             <constraint firstItem="QyU-g6-Bfe" firstAttribute="top" secondItem="VXB-vB-HvX" secondAttribute="bottom" constant="90" id="PKm-Y1-lwh"/>
                             <constraint firstItem="Czo-0u-pXR" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="37" id="R1u-AG-yr9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="16u-Ne-455" secondAttribute="trailing" constant="44" id="RxY-RH-tcv"/>
                             <constraint firstItem="3Mx-1h-kcx" firstAttribute="top" secondItem="GE8-H4-1d4" secondAttribute="bottom" constant="29" id="SmN-LX-9iy"/>
                             <constraint firstItem="Czo-0u-pXR" firstAttribute="top" secondItem="VXB-vB-HvX" secondAttribute="bottom" constant="90" id="T0l-6B-jo0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WCb-Ys-huh" secondAttribute="trailing" constant="87" id="buc-ro-002"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WCb-Ys-huh" secondAttribute="trailing" constant="112" id="buc-ro-002"/>
                             <constraint firstItem="L5Z-4B-TNn" firstAttribute="leading" secondItem="kcE-Wl-T96" secondAttribute="trailing" constant="8" id="geC-35-gsX"/>
                             <constraint firstItem="Czo-0u-pXR" firstAttribute="top" secondItem="SkU-hQ-FvY" secondAttribute="bottom" constant="84" id="hdS-HV-FN3"/>
                             <constraint firstItem="3Mx-1h-kcx" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="28" id="i9k-9m-fLa"/>
@@ -340,7 +346,7 @@
                             <constraint firstItem="L5Z-4B-TNn" firstAttribute="top" secondItem="16u-Ne-455" secondAttribute="bottom" constant="14" id="x0H-mr-lhq"/>
                             <constraint firstItem="VXB-vB-HvX" firstAttribute="leading" secondItem="SkU-hQ-FvY" secondAttribute="trailing" constant="26" id="x7k-NE-9pB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L5Z-4B-TNn" secondAttribute="trailing" constant="27" id="xzk-3k-7rb"/>
-                            <constraint firstItem="WCb-Ys-huh" firstAttribute="top" secondItem="kcE-Wl-T96" secondAttribute="bottom" constant="38" id="yIv-gs-23H"/>
+                            <constraint firstItem="WCb-Ys-huh" firstAttribute="top" secondItem="kcE-Wl-T96" secondAttribute="bottom" constant="87" id="yIv-gs-23H"/>
                             <constraint firstItem="wxH-Bu-5e5" firstAttribute="leading" secondItem="tTi-AX-PcB" secondAttribute="leadingMargin" constant="47" id="zew-RI-ycE"/>
                             <constraint firstItem="kcE-Wl-T96" firstAttribute="top" secondItem="16u-Ne-455" secondAttribute="bottom" constant="19" id="zuB-Zz-drf"/>
                         </constraints>

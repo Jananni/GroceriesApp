@@ -13,12 +13,12 @@ import RealmSwift
 
 class Settings: Object {
 
-   dynamic var notifications: Bool = false
-   dynamic var thatDay: Bool = false
-   dynamic var oneDay: Bool = false
-   dynamic var twoDays: Bool = false
-   dynamic var threeDays: Bool = false
+    dynamic var notifications: Bool = false
+    dynamic var thatDay: Bool = false
+    dynamic var oneDay: Bool = false
+    dynamic var twoDays: Bool = false
+    dynamic var threeDays: Bool = false
 
-   
-   
+    
+    
 }
