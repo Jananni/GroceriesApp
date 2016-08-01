@@ -39,10 +39,12 @@ class SettingsViewController: UIViewController {
 
         datePicker.datePickerMode = UIDatePickerMode.Time
 
+        /*
         thatDayCheckbox.isChecked = (setting?.thatDay)!
         oneDayCheckbox.isChecked = (setting?.oneDay)!
         twoDaysCheckbox.isChecked = (setting?.twoDays)!
         threeDaysCheckbox.isChecked = (setting?.threeDays)!
+ */
 
 
         let calendar = NSCalendar.currentCalendar()

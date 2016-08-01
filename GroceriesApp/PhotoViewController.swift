@@ -14,7 +14,7 @@ import RealmSwift
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var CameraTwo: UIButton!
-    @IBOutlet weak var imageDisplay: UIImageView!  //INSTEAD OF IMAGEVIEW
+    @IBOutlet weak var imageDisplay: UIImageView!
     @IBOutlet weak var noteNameTextField: UITextField!
     @IBOutlet weak var noteDateTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -23,8 +23,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var daysLeftLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
-
-
+    @IBOutlet weak var instructionLabel: UILabel!
 
     let picker = UIImagePickerController()   //INSTEAD OF IMAGEPICKER
     let notificationFacade = MRLocalNotificationFacade.defaultInstance()
@@ -40,16 +39,14 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //CHANGE FONT?
         saveBarButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial", size: 15)!], forState: UIControlState.Normal)
         picker.delegate = self
-
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,15 +54,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
 
-
-
-
     func initializeDateWithTime(date:NSDate,hrs:Int,minutes:Int, day:Int) -> NSDate{
         let today = date
         let calendar:NSCalendar = NSCalendar.currentCalendar()
 
         let dateParts = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: today)
-        print(today.convertToString())
 
         dateParts.month = SettingsHelper.expirMonth
         dateParts.day = SettingsHelper.expirDay
@@ -74,9 +67,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         dateParts.minute = SettingsHelper.datePickerMin
         //  dateParts.day = dateParts.day - day
 
-        print(dateParts)
         let dateAtTheTime = calendar.dateFromComponents(dateParts)
-        print(dateAtTheTime?.convertToString())      //NOT WORKING SETTING TO DEC 29
         return dateAtTheTime!
     }
 
@@ -99,11 +90,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             navigationController?.popViewControllerAnimated(true)
         }
         catch {
-
         }
     }
-
-
 
     @IBAction func typedName(sender: AnyObject) {
         itemNameLabel.text = noteNameTextField.text
@@ -112,22 +100,37 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func typedDate(sender: AnyObject) {
         daysLeftLabel.text = noteDateTextField.text
 
-        let indexOne: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
-        var month = daysLeftLabel.text?.substringToIndex(indexOne)
-        SettingsHelper.expirMonth = Int(month!)!
-        print("\nMONTH " + month!)
+        if(daysLeftLabel.text != nil && daysLeftLabel.text?.characters.count == 8)
+        {
 
-        let indexTwo: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
-        var day = daysLeftLabel.text?.substringFromIndex(indexOne).substringToIndex(indexTwo)
-        SettingsHelper.expirDay = Int(day!)!
-        print("\nDAY " + day!)
+            let indexOne: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
+            var month = daysLeftLabel.text?.substringToIndex(indexOne)
+            SettingsHelper.expirMonth = Int(month!)!
+            print("\nMONTH " + month!)
 
-        let indexThree: String.Index = (daysLeftLabel.text?.endIndex)!
-        var year = daysLeftLabel.text?.substringFromIndex(indexTwo)
-        //YEAR NOT ASSIGNING PROPERLY
-        year = "2016"
-        SettingsHelper.expirYear = Int(year!)!
-        print("\nYEAR " + year!)
+            let indexTwo: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
+            var day = daysLeftLabel.text?.substringFromIndex(indexOne.advancedBy(1)).substringToIndex(indexTwo)
+            SettingsHelper.expirDay = Int(day!)!
+            print("\nDAY " + day!)
+
+            let indexThree: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
+            var year = daysLeftLabel.text?.substringFromIndex(indexTwo.advancedBy(1))
+            //YEAR NOT ASSIGNING PROPERLY
+            year = "2016"
+            SettingsHelper.expirYear = Int(year!)!
+        }
+        else
+        {
+            //make an alert
+
+            let alertController = UIAlertController(title: "Expiration Date Format", message:
+                "Please enter a string following the given format", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+
+            self.presentViewController(alertController, animated: true, completion: nil)
+            noteDateTextField.text = ""
+
+        }
     }
 
     @IBAction func CameraTwoAction(sender: UIButton) {
@@ -135,17 +138,19 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // picker.delegate = self
         picker.sourceType = .Camera
         presentViewController(picker, animated: true, completion: nil)
-
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+
         let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
         addActivityIndicator()
         dismissViewControllerAnimated(true, completion: {
             self.performImageRecognition(scaledImage)
         })
+
+        instructionLabel.text = ""
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -160,31 +165,22 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                     let newNote = GroceryItem()
                     newNote.itemName = noteNameTextField.text ?? ""
 
-                    newNote.daysLeft = Int(noteDateTextField.text!) ?? 0  //Convert String to int
+                    //  newNote.daysLeft = Int(noteDateTextField.text!) ?? 0  //Convert String to int
+                    newNote.daysLeft = Int(SettingsHelper.expirDate.timeIntervalSinceNow)  //today how to calculat
+
                     RealmHelper.updateNote(note, newNote: newNote)
                 } else {
                     // if note does not exist, create new note
                     let note = GroceryItem()
                     note.itemName = noteNameTextField.text ?? ""
-                    note.daysLeft = Int(noteDateTextField.text!) ?? 0 //Convert String to int
 
                     //adds notification
 
                     if notificationCheckbox.isChecked
                     {
-
-                        print("notifs checkbox clicked")
-                        var notifDate = NSDate()
-
-                        print(SettingsHelper.datePickerTime.convertToString())
-                        print(SettingsHelper.datePickerHour)
-                        print(SettingsHelper.datePickerMin)
-
-                        print("that day clicked")
-                        notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
-                        print(notifDate.convertToString())
-                        makeNotification(notifDate)
-                        print("notification sent")
+                        SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
+                        makeNotification(SettingsHelper.expirDate)
+                        note.daysLeft = calculateDaysBetweenDates(NSDate(), endDate: SettingsHelper.expirDate)
 
                         /*   if !settingsViewController.oneDayCheckbox.isChecked
                          {
@@ -235,7 +231,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.touchesBegan(touches, withEvent: event)
     }
 
-
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
 
         var scaledSize = CGSizeMake(maxDimension, maxDimension)
@@ -250,17 +245,14 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             scaledSize.height = maxDimension
             scaledSize.width = scaledSize.height * scaleFactor
         }
-
         UIGraphicsBeginImageContext(scaledSize)
         image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
         return scaledImage
     }
 
     // Activity Indicator methods
-
     func addActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(frame: view.bounds)
         activityIndicator.activityIndicatorViewStyle = .WhiteLarge
@@ -274,13 +266,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         activityIndicator = nil
     }
 
-
-    // The remaining methods handle the keyboard resignation/
-    // move the view so that the first responders aren't hidden
-
-
     func storeLanguageFile() {
-        print("sdf")
         let fileManager: NSFileManager = NSFileManager.defaultManager()
         let docsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         let path = NSURL(fileURLWithPath: docsDirectory).URLByAppendingPathComponent("/tessdata/eng.traineddata").absoluteString
@@ -293,40 +279,45 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             data.writeToFile(path, atomically: true)
         }
     }
-    
-    
+
     func performImageRecognition(image: UIImage) {
-        
         let tesseract = G8Tesseract()
-        
         tesseract.language = "eng+fra"
-        
         tesseract.engineMode = .TesseractCubeCombined
-        
         tesseract.pageSegmentationMode = .Auto
-        
         tesseract.maximumRecognitionTime = 60.0
-        
         tesseract.image = image.g8_blackAndWhite()
         tesseract.recognize()
-        
-        textView.text = tesseract.recognizedText
+        noteDateTextField.text = tesseract.recognizedText
         print(tesseract.recognizedText)
-        textView.editable = true
-        
+        print(tesseract.recognizedText)
         removeActivityIndicator()
     }
-    
-    
+
     func imagePickerController(didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
         let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
         addActivityIndicator()
         dismissViewControllerAnimated(true, completion: {
             self.storeLanguageFile()
-            print("d")
             self.performImageRecognition(scaledImage)
         })
     }
+
+    func calculateDaysBetweenDates(startDate: NSDate, endDate: NSDate) -> Int
+    {
+        let calendarTwo = NSCalendar.currentCalendar()
+        let components = calendarTwo.components([.Day], fromDate: startDate, toDate: endDate, options: [])
+        return components.day
+
+    }
 }
+
+
+
+
+
+
+
+
 

@@ -22,7 +22,7 @@ class SettingsHelper: Object {
     static var expirMonth = 0
     static var expirDay = 0
     static var expirYear = 0
-    
+    static var expirDate = NSDate()
     
     
 }
