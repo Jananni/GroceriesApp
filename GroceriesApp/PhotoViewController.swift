@@ -16,12 +16,14 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var CameraTwo: UIButton!
     @IBOutlet weak var imageDisplay: UIImageView!
     @IBOutlet weak var noteNameTextField: UITextField!
+
     @IBOutlet weak var noteDateTextField: UITextField!
+
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var notificationCheckbox: CheckBox!
-    @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var daysLeftLabel: UILabel!
-    @IBOutlet weak var textView: UITextView!
+    //   @IBOutlet weak var itemNameLabel: UILabel!
+    //    @IBOutlet weak var daysLeftLabel: UILabel!
+    //   @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var instructionLabel: UILabel!
 
@@ -61,11 +63,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let dateParts = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: today)
 
         dateParts.month = SettingsHelper.expirMonth
-        dateParts.day = SettingsHelper.expirDay
+        //    dateParts.day = SettingsHelper.expirDay
         dateParts.year = SettingsHelper.expirYear
         dateParts.hour = SettingsHelper.datePickerHour
         dateParts.minute = SettingsHelper.datePickerMin
-        //  dateParts.day = dateParts.day - day
+        dateParts.day = SettingsHelper.expirDay - day
 
         let dateAtTheTime = calendar.dateFromComponents(dateParts)
         return dateAtTheTime!
@@ -94,30 +96,31 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
 
     @IBAction func typedName(sender: AnyObject) {
-        itemNameLabel.text = noteNameTextField.text
+        SettingsHelper.itemName = noteNameTextField.text!
     }
 
-    @IBAction func typedDate(sender: AnyObject) {
-        daysLeftLabel.text = noteDateTextField.text
+    @IBAction func typedDate(sender: UITextField) {
+        SettingsHelper.itemDaysLeft = noteDateTextField.text!
+        var daysLeftLabel = SettingsHelper.itemDaysLeft
 
-        if(daysLeftLabel.text != nil && daysLeftLabel.text?.characters.count == 8)
+        if(daysLeftLabel != "" && daysLeftLabel.characters.count == 8)
         {
 
-            let indexOne: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
-            var month = daysLeftLabel.text?.substringToIndex(indexOne)
-            SettingsHelper.expirMonth = Int(month!)!
-            print("\nMONTH " + month!)
+            let indexOne: String.Index = (daysLeftLabel.startIndex.advancedBy(2))
+            var month = daysLeftLabel.substringToIndex(indexOne)
+            SettingsHelper.expirMonth = Int(month)!
+            print("\nMONTH " + month)
 
-            let indexTwo: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
-            var day = daysLeftLabel.text?.substringFromIndex(indexOne.advancedBy(1)).substringToIndex(indexTwo)
-            SettingsHelper.expirDay = Int(day!)!
-            print("\nDAY " + day!)
+            let indexTwo: String.Index = (daysLeftLabel.startIndex.advancedBy(2))
+            var day = daysLeftLabel.substringFromIndex(indexOne.advancedBy(1)).substringToIndex(indexTwo)
+            SettingsHelper.expirDay = Int(day)!
+            print("\nDAY " + day)
 
-            let indexThree: String.Index = (daysLeftLabel.text?.startIndex.advancedBy(2))!
-            var year = daysLeftLabel.text?.substringFromIndex(indexTwo.advancedBy(1))
+            let indexThree: String.Index = (daysLeftLabel.startIndex.advancedBy(2))
+            var year = daysLeftLabel.substringFromIndex(indexTwo.advancedBy(1))
             //YEAR NOT ASSIGNING PROPERLY
             year = "2016"
-            SettingsHelper.expirYear = Int(year!)!
+            SettingsHelper.expirYear = Int(year)!
         }
         else
         {
@@ -144,6 +147,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage
 
+        noteNameTextField.text = SettingsHelper.itemName
+        noteDateTextField.text = SettingsHelper.expirDate.convertToString()
         let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
         addActivityIndicator()
         dismissViewControllerAnimated(true, completion: {
@@ -178,32 +183,33 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
                     if notificationCheckbox.isChecked
                     {
-                        SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
+                        SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 0)
                         makeNotification(SettingsHelper.expirDate)
                         note.daysLeft = calculateDaysBetweenDates(NSDate(), endDate: SettingsHelper.expirDate)
 
-                        /*   if !settingsViewController.oneDayCheckbox.isChecked
-                         {
-                         print("one day clicked")
-                         notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
-                         print(notifDate)
-                         makeNotification(notifDate)
-                         print("notification sent")
-                         }
 
-                         */
-                        /*
-                         if SettingsViewController().twoDaysCheckbox.isChecked
-                         {
-                         notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
-                         makeNotification(notifDate)
-                         }
-                         if SettingsViewController().threeDaysCheckbox.isChecked
-                         {
-                         notifDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
-                         makeNotification(notifDate)
-                         }
-                         */
+
+                        if RealmHelper.retrieveSettings().first?.oneDay == true
+                        {
+                            print("one day clicked")
+                            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
+                            makeNotification(SettingsHelper.expirDate)
+                        }
+
+
+                        if RealmHelper.retrieveSettings().first?.twoDays == true
+                        {
+                            print("two day clicked")
+                            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
+                            makeNotification(SettingsHelper.expirDate)
+                        }
+                        if RealmHelper.retrieveSettings().first?.threeDays == true
+                        {
+                            print("three day clicked")
+                            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
+                            makeNotification(SettingsHelper.expirDate)
+                        }
+
                     }
 
                     //  note.modificationTime = NSDate()

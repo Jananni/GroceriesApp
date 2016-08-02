@@ -32,19 +32,16 @@ class SettingsViewController: UIViewController {
         print(SettingsHelper.datePickerMin)
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setting = RealmHelper.retrieveSettings().last
 
         datePicker.datePickerMode = UIDatePickerMode.Time
 
-        /*
         thatDayCheckbox.isChecked = (setting?.thatDay)!
         oneDayCheckbox.isChecked = (setting?.oneDay)!
         twoDaysCheckbox.isChecked = (setting?.twoDays)!
         threeDaysCheckbox.isChecked = (setting?.threeDays)!
- */
 
 
         let calendar = NSCalendar.currentCalendar()
@@ -58,8 +55,6 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let listNotesTableViewController = segue.sourceViewController as! SettingsViewController // error
@@ -87,5 +82,4 @@ class SettingsViewController: UIViewController {
             listNotesTableViewController.setting = temp.last
         }
     }
-    
 }
