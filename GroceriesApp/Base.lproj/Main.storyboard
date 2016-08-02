@@ -301,13 +301,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert me before this item expires" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zh-Z8-q8v">
                                 <rect key="frame" x="145" y="536" width="237" height="23"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDt-Tn-4pe">
                                 <rect key="frame" x="77" y="483" width="261" height="26"/>
                                 <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM-DD-YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EE4-PD-58R">
@@ -380,7 +380,6 @@
                         <outlet property="noteDateTextField" destination="EE4-PD-58R" id="RIn-QG-wHh"/>
                         <outlet property="noteNameTextField" destination="16u-Ne-455" id="ppZ-mT-cDI"/>
                         <outlet property="notificationCheckbox" destination="SkU-hQ-FvY" id="pXz-Gr-YBt"/>
-                        <outlet property="saveBarButton" destination="3Iv-CG-qHT" id="sAL-vm-ibY"/>
                         <outlet property="saveButton" destination="3Iv-CG-qHT" id="1Xg-Eo-yIO"/>
                     </connections>
                 </viewController>

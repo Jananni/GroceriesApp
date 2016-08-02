@@ -19,7 +19,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var noteDateTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var notificationCheckbox: CheckBox!
-    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    //   @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var instructionLabel: UILabel!
 
     let picker = UIImagePickerController()   //INSTEAD OF IMAGEPICKER
@@ -38,15 +38,16 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
 
         //CHANGE FONT?
-        saveBarButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial", size: 15)!], forState: UIControlState.Normal)
+        // saveBarButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial", size: 15)!], forState: UIControlState.Normal)
         picker.delegate = self
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
+/*
         noteNameTextField.text = SettingsHelper.itemName
         noteDateTextField.text = SettingsHelper.itemDaysLeft
+ */
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,7 +160,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if segue.identifier != "Camera" && segue.identifier != "CameraTwo"
         {
             let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController //error: WHY IS IT COMING HERE??
-            if segue.identifier == "Save" {
+            if ((segue.identifier == "Save" && noteNameTextField.text != "") && noteDateTextField.text != ""){
                 // if note exists, update title and content
                 if let note = note {
                     // 1
@@ -179,33 +180,36 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
                     if notificationCheckbox.isChecked
                     {
-                        SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 0)
-                        makeNotification(SettingsHelper.expirDate)
-                        note.daysLeft = calculateDaysBetweenDates(NSDate(), endDate: SettingsHelper.expirDate)
-
-                        if RealmHelper.retrieveSettings().first?.oneDay == true
-                        {
-                            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
-                            makeNotification(SettingsHelper.expirDate)
-                        }
-
-
-                        if RealmHelper.retrieveSettings().first?.twoDays == true
-                        {
-                            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
-                            makeNotification(SettingsHelper.expirDate)
-                        }
-                        if RealmHelper.retrieveSettings().first?.threeDays == true
-                        {
-                            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
-                            makeNotification(SettingsHelper.expirDate)
-                        }
+                        calculateWithNotifications(note)
+                    }
+                    else
+                    {
+                        calculateWithoutNotifications(note)
                     }
                     //  note.modificationTime = NSDate()
                     RealmHelper.addNote(note)
                 }
+
                 listNotesTableViewController.notes = RealmHelper.retrieveNotes()
             }
+                /*
+            else if noteNameTextField.text == ""
+            {
+                let alertController = UIAlertController(title: "Item Name Field", message:
+                    "Please enter a string for the item name", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+            else if noteDateTextField.text == ""
+            {
+                let alertController = UIAlertController(title: "Expiration Date Field", message:
+                    "Please enter a date for the expiration date", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+ */
         }
     }
 
@@ -305,6 +309,56 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let components = calendarTwo.components([.Day], fromDate: startDate, toDate: endDate, options: [])
         return components.day
 
+    }
+
+    func calculateWithNotifications(note: GroceryItem)
+    {
+        SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 0)
+        makeNotification(SettingsHelper.expirDate)
+        note.daysLeft = calculateDaysBetweenDates(NSDate(), endDate: SettingsHelper.expirDate)
+
+        if RealmHelper.retrieveSettings().first?.oneDay == true
+        {
+            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
+            makeNotification(SettingsHelper.expirDate)
+        }
+
+
+        if RealmHelper.retrieveSettings().first?.twoDays == true
+        {
+            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
+            makeNotification(SettingsHelper.expirDate)
+        }
+        if RealmHelper.retrieveSettings().first?.threeDays == true
+        {
+            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
+            makeNotification(SettingsHelper.expirDate)
+        }
+    }
+
+    func calculateWithoutNotifications(note: GroceryItem)
+    {
+        SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 0)
+        //   makeNotification(SettingsHelper.expirDate)
+        note.daysLeft = calculateDaysBetweenDates(NSDate(), endDate: SettingsHelper.expirDate)
+
+        if RealmHelper.retrieveSettings().first?.oneDay == true
+        {
+            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
+            //   makeNotification(SettingsHelper.expirDate)
+        }
+
+
+        if RealmHelper.retrieveSettings().first?.twoDays == true
+        {
+            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
+            //    makeNotification(SettingsHelper.expirDate)
+        }
+        if RealmHelper.retrieveSettings().first?.threeDays == true
+        {
+            SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
+            //   makeNotification(SettingsHelper.expirDate)
+        }
     }
 }
 

@@ -28,15 +28,27 @@ class GroceryListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("listGroceryCell", forIndexPath: indexPath) as! ListGroceryCell
-
         let row = indexPath.row
-
         let note = notes[row]
-
         cell.noteTitleLabel.text = note.itemName
-
         cell.noteDaysLeft.text = String(note.daysLeft)
         //  cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
+
+        if Int(cell.noteDaysLeft.text!)! <= 3
+        {
+        cell.noteTitleLabel.backgroundColor = UIColor.redColor()
+        cell.backgroundColor = UIColor.redColor()
+        }
+        else if Int(cell.noteDaysLeft.text!)! <= 7
+        {
+            cell.noteTitleLabel.backgroundColor = UIColor.yellowColor()
+            cell.backgroundColor = UIColor.yellowColor()
+        }
+        else
+        {
+            cell.noteTitleLabel.backgroundColor = UIColor.greenColor()
+            cell.backgroundColor = UIColor.greenColor()
+        }
 
         return cell
     }
