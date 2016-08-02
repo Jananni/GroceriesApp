@@ -16,14 +16,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var CameraTwo: UIButton!
     @IBOutlet weak var imageDisplay: UIImageView!
     @IBOutlet weak var noteNameTextField: UITextField!
-
     @IBOutlet weak var noteDateTextField: UITextField!
-
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var notificationCheckbox: CheckBox!
-    //   @IBOutlet weak var itemNameLabel: UILabel!
-    //    @IBOutlet weak var daysLeftLabel: UILabel!
-    //   @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var instructionLabel: UILabel!
 
@@ -41,7 +36,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //CHANGE FONT?
         saveBarButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial", size: 15)!], forState: UIControlState.Normal)
         picker.delegate = self
@@ -49,6 +44,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
+        noteNameTextField.text = SettingsHelper.itemName
+        noteDateTextField.text = SettingsHelper.itemDaysLeft
     }
 
     override func didReceiveMemoryWarning() {
@@ -147,8 +145,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageDisplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage
 
-        noteNameTextField.text = SettingsHelper.itemName
-        noteDateTextField.text = SettingsHelper.expirDate.convertToString()
         let scaledImage = scaleImage(selectedPhoto, maxDimension: 640)
         addActivityIndicator()
         dismissViewControllerAnimated(true, completion: {
@@ -187,11 +183,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                         makeNotification(SettingsHelper.expirDate)
                         note.daysLeft = calculateDaysBetweenDates(NSDate(), endDate: SettingsHelper.expirDate)
 
-
-
                         if RealmHelper.retrieveSettings().first?.oneDay == true
                         {
-                            print("one day clicked")
                             SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 1)
                             makeNotification(SettingsHelper.expirDate)
                         }
@@ -199,19 +192,15 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
                         if RealmHelper.retrieveSettings().first?.twoDays == true
                         {
-                            print("two day clicked")
                             SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 2)
                             makeNotification(SettingsHelper.expirDate)
                         }
                         if RealmHelper.retrieveSettings().first?.threeDays == true
                         {
-                            print("three day clicked")
                             SettingsHelper.expirDate = initializeDateWithTime(dateFromDatePicker, hrs: SettingsHelper.datePickerHour, minutes: SettingsHelper.datePickerMin, day: 3)
                             makeNotification(SettingsHelper.expirDate)
                         }
-
                     }
-
                     //  note.modificationTime = NSDate()
                     RealmHelper.addNote(note)
                 }
