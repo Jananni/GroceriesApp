@@ -3,8 +3,9 @@ import UIKit
 import RealmSwift
 
 
-class GroceryListViewController: UITableViewController, KCFloatingActionButtonDelegate{
+class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegate{
 
+    @IBOutlet weak var tableView: UITableView!
 
     var fab = KCFloatingActionButton()
 
@@ -71,11 +72,11 @@ class GroceryListViewController: UITableViewController, KCFloatingActionButtonDe
     }
 
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("listGroceryCell", forIndexPath: indexPath) as! ListGroceryCell
         let row = indexPath.row
@@ -138,7 +139,7 @@ class GroceryListViewController: UITableViewController, KCFloatingActionButtonDe
 
 
     // 1
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             //1
             RealmHelper.deleteNote(notes[indexPath.row])

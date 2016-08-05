@@ -61,6 +61,7 @@ class SettingsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let listNotesTableViewController = segue.sourceViewController as! SettingsViewController // error
         if segue.identifier == "SaveSettings" {
+            print("reachedSaveSettings")
             // if note exists, update title and content
             if let setting = setting {
                 // 1

@@ -162,6 +162,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             let listNotesTableViewController = segue.destinationViewController as! GroceryListViewController //error: WHY IS IT COMING HERE??
             if ((segue.identifier == "Save" && noteNameTextField.text != "") && noteDateTextField.text != ""){
                 // if note exists, update title and content
+                print("saveItem")
                 if let note = note {
                     // 1
                     let newNote = GroceryItem()
