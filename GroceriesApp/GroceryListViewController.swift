@@ -2,7 +2,11 @@
 import UIKit
 import RealmSwift
 
-class GroceryListViewController: UITableViewController {
+
+class GroceryListViewController: UITableViewController, KCFloatingActionButtonDelegate{
+
+
+    var fab = KCFloatingActionButton()
 
     var notes: Results<GroceryItem>!{
         didSet {
@@ -18,6 +22,52 @@ class GroceryListViewController: UITableViewController {
             let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound, .Badge], categories: nil)
             UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         }
+        layoutFAB()
+    }
+
+    @IBAction func endEditing() {
+        view.endEditing(true)
+    }
+
+    @IBAction func customImageSwitched(sender: UISwitch) {
+        if sender.on == true {
+            fab.buttonImage = UIImage(named: "custom-add")
+        } else {
+            fab.buttonImage = nil
+        }
+    }
+
+    func layoutFAB() {
+        let item = KCFloatingActionButtonItem()
+        item.buttonColor = UIColor.blueColor()
+        item.circleShadowColor = UIColor.redColor()
+        item.titleShadowColor = UIColor.blueColor()
+        item.title = "Custom item"
+        item.handler = { item in
+
+        }
+
+        fab.addItem(title: "I got a title")
+        fab.addItem("I got a icon", icon: UIImage(named: "icShare"))
+        fab.addItem("I got a handler", icon: UIImage(named: "icMap")) { item in
+            let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Me too", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.fab.close()
+        }
+        fab.addItem(item: item)
+        fab.fabDelegate = self
+
+        self.view.addSubview(fab)
+
+    }
+
+    func KCFABOpened(fab: KCFloatingActionButton) {
+        print("FAB Opened")
+    }
+
+    func KCFABClosed(fab: KCFloatingActionButton) {
+        print("FAB Closed")
     }
 
 
@@ -36,18 +86,21 @@ class GroceryListViewController: UITableViewController {
 
         if Int(cell.noteDaysLeft.text!)! <= 3
         {
-        cell.noteTitleLabel.backgroundColor = UIColor.redColor()
-        cell.backgroundColor = UIColor.redColor()
+            let swiftColor = UIColor(red: 255/255, green: 204/255, blue: 103/255, alpha: 1)
+            cell.noteTitleLabel.backgroundColor = swiftColor
+            cell.backgroundColor = swiftColor
         }
         else if Int(cell.noteDaysLeft.text!)! <= 7
         {
-            cell.noteTitleLabel.backgroundColor = UIColor.yellowColor()
-            cell.backgroundColor = UIColor.yellowColor()
+            let swiftColortwo = UIColor(red: 255/255, green: 255/255, blue: 204/255, alpha: 1)
+            cell.noteTitleLabel.backgroundColor = swiftColortwo
+            cell.backgroundColor = swiftColortwo
         }
         else
         {
-            cell.noteTitleLabel.backgroundColor = UIColor.greenColor()
-            cell.backgroundColor = UIColor.greenColor()
+            let swiftColorthree = UIColor(red: 204/255, green: 255/255, blue: 204/255, alpha: 1)
+            cell.noteTitleLabel.backgroundColor = swiftColorthree
+            cell.backgroundColor = swiftColorthree
         }
 
         return cell

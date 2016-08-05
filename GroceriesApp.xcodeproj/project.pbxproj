@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D4201940BDDF209CC919149 /* Pods_GroceriesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE9DD59376050E0BB3FD5C0 /* Pods_GroceriesApp.framework */; };
 		F53DC7A21D468501002942F3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53DC7A11D468501002942F3 /* SettingsHelper.swift */; };
 		F53DC80B1D481A2C002942F3 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53DC80A1D481A2C002942F3 /* TesseractOCR.framework */; };
 		F53DC80D1D481A40002942F3 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F53DC80C1D481A40002942F3 /* tessdata */; };
@@ -31,6 +32,12 @@
 		F5CD9FAC1D4028B500114F5A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD9FAB1D4028B500114F5A /* Settings.swift */; };
 		F5CD9FAE1D4037A500114F5A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD9FAD1D4037A500114F5A /* SettingsViewController.swift */; };
 		F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */; };
+		F5F2F6281D553D1900B58AE5 /* KCFABManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2F6221D553D1900B58AE5 /* KCFABManager.swift */; };
+		F5F2F6291D553D1900B58AE5 /* KCFABViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2F6231D553D1900B58AE5 /* KCFABViewController.swift */; };
+		F5F2F62A1D553D1900B58AE5 /* KCFABWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2F6241D553D1900B58AE5 /* KCFABWindow.swift */; };
+		F5F2F62B1D553D1900B58AE5 /* KCFloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2F6251D553D1900B58AE5 /* KCFloatingActionButton.swift */; };
+		F5F2F62C1D553D1900B58AE5 /* KCFloatingActionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2F6261D553D1900B58AE5 /* KCFloatingActionButtonDelegate.swift */; };
+		F5F2F62D1D553D1900B58AE5 /* KCFloatingActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2F6271D553D1900B58AE5 /* KCFloatingActionButtonItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +56,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		08E8CF39748FAE299C1A51B9 /* Pods-GroceriesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceriesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceriesApp/Pods-GroceriesApp.release.xcconfig"; sourceTree = "<group>"; };
+		619D78AC4341C9E064460450 /* Pods-GroceriesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceriesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceriesApp/Pods-GroceriesApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9CE9DD59376050E0BB3FD5C0 /* Pods_GroceriesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceriesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53DC7A11D468501002942F3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		F53DC80A1D481A2C002942F3 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		F53DC80C1D481A40002942F3 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -58,7 +68,7 @@
 		F55420D71D34328000E78F88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55420D91D34328000E78F88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F55420DC1D34328000E78F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F55420DE1D34328000E78F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F55420DE1D34328000E78F88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GroceriesApp/Assets.xcassets; sourceTree = "<group>"; };
 		F55420E11D34328000E78F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F55420E31D34328000E78F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5894C891D428C6A0061F33F /* GroceriesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroceriesApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -75,6 +85,12 @@
 		F5CD9FAB1D4028B500114F5A /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F5CD9FAD1D4037A500114F5A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		F5F2F6221D553D1900B58AE5 /* KCFABManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABManager.swift; sourceTree = "<group>"; };
+		F5F2F6231D553D1900B58AE5 /* KCFABViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABViewController.swift; sourceTree = "<group>"; };
+		F5F2F6241D553D1900B58AE5 /* KCFABWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFABWindow.swift; sourceTree = "<group>"; };
+		F5F2F6251D553D1900B58AE5 /* KCFloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButton.swift; sourceTree = "<group>"; };
+		F5F2F6261D553D1900B58AE5 /* KCFloatingActionButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonDelegate.swift; sourceTree = "<group>"; };
+		F5F2F6271D553D1900B58AE5 /* KCFloatingActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KCFloatingActionButtonItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +103,30 @@
 				F59AA5C91D387B1C00E53D53 /* RealmSwift.framework in Frameworks */,
 				F53DC80B1D481A2C002942F3 /* TesseractOCR.framework in Frameworks */,
 				F59AA5C71D387B1C00E53D53 /* Realm.framework in Frameworks */,
+				6D4201940BDDF209CC919149 /* Pods_GroceriesApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D081D4179507CB719F47392 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CE9DD59376050E0BB3FD5C0 /* Pods_GroceriesApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAF934C2677784FCF36ECBD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				619D78AC4341C9E064460450 /* Pods-GroceriesApp.debug.xcconfig */,
+				08E8CF39748FAE299C1A51B9 /* Pods-GroceriesApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F53DC8091D481A09002942F3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +148,7 @@
 		F55420CB1D34328000E78F88 = {
 			isa = PBXGroup;
 			children = (
+				F55420DE1D34328000E78F88 /* Assets.xcassets */,
 				F53DC8101D481A85002942F3 /* CoreImage.framework */,
 				F53DC80E1D481A76002942F3 /* libstdc++.6.0.9.tbd */,
 				F54FE0E41D41AF55002B9192 /* MRLocalNotificationFacade */,
@@ -122,6 +157,8 @@
 				F55420D61D34328000E78F88 /* GroceriesApp */,
 				F55420D51D34328000E78F88 /* Products */,
 				F53DC80A1D481A2C002942F3 /* TesseractOCR.framework */,
+				DAF934C2677784FCF36ECBD9 /* Pods */,
+				5D081D4179507CB719F47392 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,12 +173,12 @@
 		F55420D61D34328000E78F88 /* GroceriesApp */ = {
 			isa = PBXGroup;
 			children = (
+				F5F2F6211D553D1900B58AE5 /* KCFloatingActionButton */,
 				F53DC8091D481A09002942F3 /* Supporting Files */,
 				F55420D71D34328000E78F88 /* AppDelegate.swift */,
 				F55420D91D34328000E78F88 /* ViewController.swift */,
 				F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */,
 				F55420DB1D34328000E78F88 /* Main.storyboard */,
-				F55420DE1D34328000E78F88 /* Assets.xcassets */,
 				F55420E01D34328000E78F88 /* LaunchScreen.storyboard */,
 				F55420E31D34328000E78F88 /* Info.plist */,
 				F59AA5B31D36B45700E53D53 /* ListGroceryCell.swift */,
@@ -157,6 +194,19 @@
 			path = GroceriesApp;
 			sourceTree = "<group>";
 		};
+		F5F2F6211D553D1900B58AE5 /* KCFloatingActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				F5F2F6221D553D1900B58AE5 /* KCFABManager.swift */,
+				F5F2F6231D553D1900B58AE5 /* KCFABViewController.swift */,
+				F5F2F6241D553D1900B58AE5 /* KCFABWindow.swift */,
+				F5F2F6251D553D1900B58AE5 /* KCFloatingActionButton.swift */,
+				F5F2F6261D553D1900B58AE5 /* KCFloatingActionButtonDelegate.swift */,
+				F5F2F6271D553D1900B58AE5 /* KCFloatingActionButtonItem.swift */,
+			);
+			path = KCFloatingActionButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,10 +214,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F55420E61D34328000E78F88 /* Build configuration list for PBXNativeTarget "GroceriesApp" */;
 			buildPhases = (
+				6C4C7C4900FDE9C218B5601B /* [CP] Check Pods Manifest.lock */,
 				F55420D01D34328000E78F88 /* Sources */,
 				F55420D11D34328000E78F88 /* Frameworks */,
 				F55420D21D34328000E78F88 /* Resources */,
 				F59AA5CB1D387B1C00E53D53 /* Embed Frameworks */,
+				F569D22E1D526E92000A8CBE /* ShellScript */,
+				53F60B56B960301A1AE0CF21 /* [CP] Embed Pods Frameworks */,
+				7D56C1385EECC590BB636B71 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,7 +244,7 @@
 				TargetAttributes = {
 					F55420D31D34328000E78F88 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = U53EUNMU98;
+						DevelopmentTeam = EG894BMU5C;
 					};
 				};
 			};
@@ -226,24 +280,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53F60B56B960301A1AE0CF21 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroceriesApp/Pods-GroceriesApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C4C7C4900FDE9C218B5601B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7D56C1385EECC590BB636B71 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroceriesApp/Pods-GroceriesApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F569D22E1D526E92000A8CBE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F55420D01D34328000E78F88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F59AA5D31D3970B500E53D53 /* GroceryListViewController.swift in Sources */,
+				F5F2F62D1D553D1900B58AE5 /* KCFloatingActionButtonItem.swift in Sources */,
 				F55420DA1D34328000E78F88 /* ViewController.swift in Sources */,
 				F5CD9FAE1D4037A500114F5A /* SettingsViewController.swift in Sources */,
 				F55420D81D34328000E78F88 /* AppDelegate.swift in Sources */,
+				F5F2F62C1D553D1900B58AE5 /* KCFloatingActionButtonDelegate.swift in Sources */,
 				F59AA5BA1D36DBFF00E53D53 /* PhotoViewController.swift in Sources */,
 				F5CD9FAC1D4028B500114F5A /* Settings.swift in Sources */,
 				F53DC7A21D468501002942F3 /* SettingsHelper.swift in Sources */,
 				F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */,
+				F5F2F6291D553D1900B58AE5 /* KCFABViewController.swift in Sources */,
 				F59AA5BE1D383F4B00E53D53 /* RealmHelper.swift in Sources */,
 				F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */,
+				F5F2F62A1D553D1900B58AE5 /* KCFABWindow.swift in Sources */,
+				F5F2F62B1D553D1900B58AE5 /* KCFloatingActionButton.swift in Sources */,
 				F59AA5BC1D38204C00E53D53 /* GroceryItem.swift in Sources */,
 				F59AA5C21D38403700E53D53 /* NSDate+convertToString.swift in Sources */,
 				F5894C8B1D428C6B0061F33F /* MRLocalNotificationFacade.m in Sources */,
+				F5F2F6281D553D1900B58AE5 /* KCFABManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,12 +475,17 @@
 		};
 		F55420E71D34328000E78F88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 619D78AC4341C9E064460450 /* Pods-GroceriesApp.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh",
+					"$(ARCHS_STANDARD)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,9 +494,9 @@
 				INFOPLIST_FILE = GroceriesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FoodE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MRLocalNotificationFacade/GroceriesApp-Bridging-Header.h";
@@ -381,12 +507,17 @@
 		};
 		F55420E81D34328000E78F88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08E8CF39748FAE299C1A51B9 /* Pods-GroceriesApp.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh",
+					"$(ARCHS_STANDARD)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -395,9 +526,9 @@
 				INFOPLIST_FILE = GroceriesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.GroceriesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FoodE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MRLocalNotificationFacade/GroceriesApp-Bridging-Header.h";

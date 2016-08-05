@@ -9,7 +9,7 @@
 import UIKit
 import MobileCoreServices
 import RealmSwift
-
+//import SwiftValidators
 
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
