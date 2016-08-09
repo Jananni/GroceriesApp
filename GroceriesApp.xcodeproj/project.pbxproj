@@ -29,6 +29,9 @@
 		F59AA5C91D387B1C00E53D53 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */; };
 		F59AA5CA1D387B1C00E53D53 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F59AA5D31D3970B500E53D53 /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59AA5D21D3970B500E53D53 /* GroceryListViewController.swift */; };
+		F5C33A1D1D590CF000C6CCC6 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C33A1C1D590CF000C6CCC6 /* ShoppingListViewController.swift */; };
+		F5C33A1F1D590E6100C6CCC6 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C33A1E1D590E6100C6CCC6 /* ShoppingItem.swift */; };
+		F5C33A211D59108B00C6CCC6 /* ShoppingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C33A201D59108B00C6CCC6 /* ShoppingListCell.swift */; };
 		F5CD9FAC1D4028B500114F5A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD9FAB1D4028B500114F5A /* Settings.swift */; };
 		F5CD9FAE1D4037A500114F5A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD9FAD1D4037A500114F5A /* SettingsViewController.swift */; };
 		F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */; };
@@ -82,6 +85,9 @@
 		F59AA5C51D387B1C00E53D53 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		F59AA5C61D387B1C00E53D53 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		F59AA5D21D3970B500E53D53 /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
+		F5C33A1C1D590CF000C6CCC6 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		F5C33A1E1D590E6100C6CCC6 /* ShoppingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
+		F5C33A201D59108B00C6CCC6 /* ShoppingListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListCell.swift; sourceTree = "<group>"; };
 		F5CD9FAB1D4028B500114F5A /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F5CD9FAD1D4037A500114F5A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F5F2E2DF1D35893B00C074C3 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -190,6 +196,9 @@
 				F5CD9FAB1D4028B500114F5A /* Settings.swift */,
 				F5CD9FAD1D4037A500114F5A /* SettingsViewController.swift */,
 				F53DC7A11D468501002942F3 /* SettingsHelper.swift */,
+				F5C33A1C1D590CF000C6CCC6 /* ShoppingListViewController.swift */,
+				F5C33A1E1D590E6100C6CCC6 /* ShoppingItem.swift */,
+				F5C33A201D59108B00C6CCC6 /* ShoppingListCell.swift */,
 			);
 			path = GroceriesApp;
 			sourceTree = "<group>";
@@ -358,11 +367,14 @@
 				F5F2E2E01D35893B00C074C3 /* CheckBox.swift in Sources */,
 				F5F2F6291D553D1900B58AE5 /* KCFABViewController.swift in Sources */,
 				F59AA5BE1D383F4B00E53D53 /* RealmHelper.swift in Sources */,
+				F5C33A1D1D590CF000C6CCC6 /* ShoppingListViewController.swift in Sources */,
 				F59AA5B41D36B45700E53D53 /* ListGroceryCell.swift in Sources */,
 				F5F2F62A1D553D1900B58AE5 /* KCFABWindow.swift in Sources */,
+				F5C33A211D59108B00C6CCC6 /* ShoppingListCell.swift in Sources */,
 				F5F2F62B1D553D1900B58AE5 /* KCFloatingActionButton.swift in Sources */,
 				F59AA5BC1D38204C00E53D53 /* GroceryItem.swift in Sources */,
 				F59AA5C21D38403700E53D53 /* NSDate+convertToString.swift in Sources */,
+				F5C33A1F1D590E6100C6CCC6 /* ShoppingItem.swift in Sources */,
 				F5894C8B1D428C6B0061F33F /* MRLocalNotificationFacade.m in Sources */,
 				F5F2F6281D553D1900B58AE5 /* KCFABManager.swift in Sources */,
 			);

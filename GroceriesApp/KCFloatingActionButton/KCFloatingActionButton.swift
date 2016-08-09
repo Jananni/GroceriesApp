@@ -31,7 +31,7 @@ public class KCFloatingActionButton: UIView {
     /**
         This object's button size.
     */
-    public var size: CGFloat = 56 {
+    public var size: CGFloat = 40 {   //56
         didSet {
             self.setNeedsDisplay()
             self.recalculateItemsOrigin()
@@ -69,7 +69,7 @@ public class KCFloatingActionButton: UIView {
     /**
         Button color.
     */
-    @IBInspectable public var buttonColor: UIColor = UIColor(red: 73/255.0, green: 151/255.0, blue: 241/255.0, alpha: 1)
+    @IBInspectable public var buttonColor: UIColor = UIColor(red: 204/255.0, green: 255/255.0, blue: 204/255.0, alpha: 1)
     
     /**
         Button image.
@@ -98,7 +98,7 @@ public class KCFloatingActionButton: UIView {
     /**
         Child item's default size.
     */
-    @IBInspectable public var itemSize: CGFloat = 42 {
+    @IBInspectable public var itemSize: CGFloat = 35 {  //42
         didSet {
             self.items.forEach { item in
                 item.size = self.itemSize

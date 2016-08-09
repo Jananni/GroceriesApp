@@ -64,6 +64,36 @@ class RealmHelper {
         }
         
     }
+
+
+    static func addShoppingItem(shoppingItem: ShoppingItem) {
+        print("in realnhelper")
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(shoppingItem)
+            print(shoppingItem)
+        }
+    }
+
+    static func deleteShoppingItem(shoppingItem: ShoppingItem) {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.delete(shoppingItem)
+        }
+    }
+
+    static func updateShoppingItem(itemToBeUpdated: ShoppingItem, newShoppingItem: ShoppingItem) {
+        let realm = try! Realm()
+        try! realm.write() {
+            itemToBeUpdated.shoppingItemName = newShoppingItem.shoppingItemName
+
+        }
+    }
+
+    static func retrieveShoppingItem() -> Results<ShoppingItem> {
+        let realm = try! Realm()
+        return realm.objects(ShoppingItem).sorted("shoppingItemName", ascending: true)
+    }
     
 }
 

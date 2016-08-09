@@ -8,11 +8,22 @@
 
 import UIKit
 
+protocol ListGroceryCellDelegate {
+    func buttonCellClicked(cell: ListGroceryCell) -> Void
+}
+
 class ListGroceryCell: UITableViewCell {
+
+    var delegate: ListGroceryCellDelegate!
 
     @IBOutlet weak var noteTitleLabel: UILabel!
 
     @IBOutlet weak var noteDaysLeft: UILabel!
 
-    
+    @IBAction func clickedShoppingButton(sender: AnyObject) {
+        print("clicked")
+
+        delegate!.buttonCellClicked(self)
+        print("after button")
+    }
 }
