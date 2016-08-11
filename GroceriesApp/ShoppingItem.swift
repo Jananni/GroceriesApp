@@ -14,12 +14,12 @@ import Realm
 class ShoppingItem: Object {
 
     dynamic var shoppingItemName: String = ""
+
     required init() {
         super.init()
     }
     init(bar: String) {
         self.shoppingItemName = bar
-
         super.init()
     }
     
@@ -29,5 +29,13 @@ class ShoppingItem: Object {
     
     required init(value: AnyObject, schema: RLMSchema) {
         super.init(value: value, schema: schema)
+    }
+
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let object = object as? ShoppingItem {
+            return object.shoppingItemName == self.shoppingItemName
+        } else  {
+            return false
+        }
     }
 }

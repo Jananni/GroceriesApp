@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Grocery List-->
+        <!--FoodE-->
         <scene sceneID="fxQ-He-g9K">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="qGT-q3-Q5e" customClass="GroceryListViewController" customModule="GroceriesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBa-Di-M2g">
                                                     <rect key="frame" x="357" y="17" width="25" height="25"/>
                                                     <state key="normal" image="shopping_cart"/>
-                                                    <state key="selected" image="shopping_cart_filled"/>
+                                                    <state key="selected" image="shopping_cart_filled" backgroundImage="shopping_cart_filled"/>
                                                     <connections>
                                                         <action selector="clickedShoppingButton:" destination="DB9-ev-L0Q" eventType="touchUpInside" id="b5c-xF-ZpQ"/>
                                                     </connections>
@@ -89,7 +89,7 @@
                             <constraint firstItem="Elv-6l-4SF" firstAttribute="top" secondItem="4NH-og-TGp" secondAttribute="bottom" id="lJB-MQ-X6i"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Grocery List" id="Sne-3a-i0C">
+                    <navigationItem key="navigationItem" title="FoodE" id="Sne-3a-i0C">
                         <barButtonItem key="leftBarButtonItem" image="settings" id="PHg-Y9-XYt">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -476,11 +476,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shoppingItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41h-fk-HeC">
-                                                    <rect key="frame" x="25" y="19" width="162" height="21"/>
+                                                    <rect key="frame" x="25" y="18" width="162" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="162" id="i6B-5S-VVm"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -500,6 +500,12 @@
                                     <outlet property="delegate" destination="aGP-AW-amk" id="Toj-LG-rJb"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmi-Lt-meZ">
+                                <rect key="frame" x="0.0" y="8" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Shopping List" id="RcJ-H0-3jL"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -516,7 +522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrT-xc-nG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="1338"/>
+            <point key="canvasLocation" x="1639" y="1336"/>
         </scene>
     </scenes>
     <resources>

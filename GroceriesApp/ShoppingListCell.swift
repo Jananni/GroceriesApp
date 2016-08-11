@@ -15,5 +15,7 @@ class ShoppingListCell: UITableViewCell {
 
     @IBOutlet weak var shoppingItemLabel: UILabel!
 
+    var shouldDelete: Bool = false
+
     
 }

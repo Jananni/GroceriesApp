@@ -20,10 +20,9 @@ class ListGroceryCell: UITableViewCell {
 
     @IBOutlet weak var noteDaysLeft: UILabel!
 
-    @IBAction func clickedShoppingButton(sender: AnyObject) {
-        print("clicked")
+    var shoppingClicked: Bool = false
 
+    @IBAction func clickedShoppingButton(sender: AnyObject) {
         delegate!.buttonCellClicked(self)
-        print("after button")
     }
 }

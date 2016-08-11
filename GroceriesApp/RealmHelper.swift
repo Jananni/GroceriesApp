@@ -67,11 +67,9 @@ class RealmHelper {
 
 
     static func addShoppingItem(shoppingItem: ShoppingItem) {
-        print("in realnhelper")
         let realm = try! Realm()
         try! realm.write() {
             realm.add(shoppingItem)
-            print(shoppingItem)
         }
     }
 

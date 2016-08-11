@@ -54,6 +54,15 @@ class ShoppingListViewController: UIViewController {
             //2
             shoppingList = RealmHelper.retrieveShoppingItem()
         }
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("listShoppingCell", forIndexPath: indexPath) as! ShoppingListCell
+
+        if cell.shouldDelete {
+
+            RealmHelper.deleteShoppingItem(shoppingList[indexPath.row])
+            //2
+            shoppingList = RealmHelper.retrieveShoppingItem()
+        }
     }
 
 

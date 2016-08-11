@@ -7,14 +7,19 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
 
     @IBOutlet weak var tableView: UITableView!
 
+
+    var shoppingListItem: String = ""
+
+
     var fab = KCFloatingActionButton()
+
+    var shoppingButtonClickedAlready: Bool = false
 
     var notes: Results<GroceryItem>!{
         didSet {
             tableView.reloadData()
         }
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +37,7 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
 
     @IBAction func customImageSwitched(sender: UISwitch) {
         if sender.on == true {
-            fab.buttonImage = UIImage(named: "custom-add")
+            fab.buttonImage = UIImage(named: "edit_property")   //change Image
         } else {
             fab.buttonImage = nil
         }
@@ -48,15 +53,10 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
 
         }
 
-        fab.addItem(title: "I got a title")
-        fab.addItem("I got a icon", icon: UIImage(named: "icShare"))
-        fab.addItem("I got a handler", icon: UIImage(named: "icMap")) { item in
-            let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Me too", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+        fab.addItem("Shopping List", icon: UIImage(named: "shopping_cart")) { item in
+            self.performSegueWithIdentifier("gotoAddFromPlaylist", sender: self)
             self.fab.close()
         }
-        fab.addItem(item: item)
         fab.fabDelegate = self
 
         self.view.addSubview(fab)
@@ -81,9 +81,9 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
         let cell = tableView.dequeueReusableCellWithIdentifier("listGroceryCell", forIndexPath: indexPath) as! ListGroceryCell
         let row = indexPath.row
         let note = notes[row]
+        cell.delegate = self
         cell.noteTitleLabel.text = note.itemName
         cell.noteDaysLeft.text = String(note.daysLeft)
-        //  cell.noteModificationTimeLabel.text = note.modificationTime.convertToString()
 
         if Int(cell.noteDaysLeft.text!)! <= 3
         {
@@ -131,12 +131,9 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
     }
 
     @IBAction func unwindToListNotesViewController(segue: UIStoryboardSegue) {
-
         // for now, simply defining the method is sufficient.
         // we'll add code later
-
     }
-
 
     // 1
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -149,4 +146,65 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
     }
 }
 
+extension GroceryListViewController: ListGroceryCellDelegate
+{
+    func buttonCellClicked(cell: ListGroceryCell)
+    {
+        /*
+        if !shoppingButtonClickedAlready
+        {
+            //   shoppingListItem = cell.noteTitleLabel.text!
+            var isSomethingThereAlready = false
+
+            for i in 0...RealmHelper.retrieveShoppingItem().count
+            {
+                print("COUNT")
+                print(RealmHelper.retrieveShoppingItem().count)
+                if cell.noteTitleLabel.text! == RealmHelper.retrieveNotes()[i]
+                {
+                    isSomethingThereAlready = true
+                }
+            }
+            if !isSomethingThereAlready
+            {
+                shoppingListItem = cell.noteTitleLabel.text!
+                RealmHelper.addShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
+                shoppingButtonClickedAlready = !shoppingButtonClickedAlready
+            }
+        }
+        else
+        {
+            RealmHelper.deleteShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
+            shoppingButtonClickedAlready = !shoppingButtonClickedAlready
+        }
+ */
+        shoppingButtonClickedAlready = cell.shoppingClicked
+        if !shoppingButtonClickedAlready
+        {
+            let shoppingSet = Set(RealmHelper.retrieveShoppingItem())
+
+
+            shoppingListItem = cell.noteTitleLabel.text!
+            let newShoppingItem = ShoppingItem(bar: shoppingListItem)
+
+            print(shoppingSet.contains(newShoppingItem))
+            if !shoppingSet.contains(newShoppingItem)
+            {
+                RealmHelper.addShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
+                cell.shoppingClicked = !cell.shoppingClicked
+            }
+            else
+            {
+                cell.shoppingClicked = !cell.shoppingClicked
+            }
+        }
+        else
+        {
+            //     cell.shouldDelete = !cell.shouldDelete
+            cell.shoppingClicked = !cell.shoppingClicked
+        }
+
+        // RealmHelper.addShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
+    }
+}
 
