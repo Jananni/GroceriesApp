@@ -14,6 +14,8 @@ protocol ListGroceryCellDelegate {
 
 class ListGroceryCell: UITableViewCell {
 
+    @IBOutlet weak var shoppingButtonOnCell: UIButton!
+
     var delegate: ListGroceryCellDelegate!
 
     @IBOutlet weak var noteTitleLabel: UILabel!
@@ -23,6 +25,18 @@ class ListGroceryCell: UITableViewCell {
     var shoppingClicked: Bool = false
 
     @IBAction func clickedShoppingButton(sender: AnyObject) {
+        shoppingButtonOnCell.selected = !shoppingButtonOnCell.selected
         delegate!.buttonCellClicked(self)
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        //     shoppingButtonOnCell.setImage(UIImage(named: "shopping_cart_filled"), forState: UIControlState.Highlighted)
     }
 }

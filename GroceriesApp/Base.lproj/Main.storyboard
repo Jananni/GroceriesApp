@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TTe-03-nyj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TTe-03-nyj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -30,15 +30,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysLeft" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtk-ye-Rdj">
-                                                    <rect key="frame" x="189" y="18" width="117" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="117" id="F5U-Uz-KFf"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="itemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7G4-Ic-qP1">
                                                     <rect key="frame" x="20" y="18" width="174" height="24"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,26 +41,42 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBa-Di-M2g">
-                                                    <rect key="frame" x="357" y="17" width="25" height="25"/>
-                                                    <state key="normal" image="shopping_cart"/>
-                                                    <state key="selected" image="shopping_cart_filled" backgroundImage="shopping_cart_filled"/>
+                                                    <rect key="frame" x="356" y="18" width="50" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Hye-cK-Zl4"/>
+                                                    </constraints>
+                                                    <state key="normal" image="shopping_cart">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="selected" image="shopping_cart_filled">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="clickedShoppingButton:" destination="DB9-ev-L0Q" eventType="touchUpInside" id="b5c-xF-ZpQ"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daysLeft" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtk-ye-Rdj">
+                                                    <rect key="frame" x="276" y="18" width="67" height="24"/>
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="cBa-Di-M2g" secondAttribute="trailing" constant="24" id="Srs-rb-JgW"/>
+                                                <constraint firstItem="cBa-Di-M2g" firstAttribute="bottom" secondItem="7G4-Ic-qP1" secondAttribute="bottom" id="681-9p-Nbq"/>
+                                                <constraint firstItem="cBa-Di-M2g" firstAttribute="trailing" secondItem="gix-7L-PUh" secondAttribute="trailingMargin" id="7XT-ea-LE5"/>
+                                                <constraint firstItem="cBa-Di-M2g" firstAttribute="leading" secondItem="jtk-ye-Rdj" secondAttribute="trailing" constant="13" id="BTS-Ch-8dS"/>
+                                                <constraint firstItem="cBa-Di-M2g" firstAttribute="top" secondItem="gix-7L-PUh" secondAttribute="topMargin" constant="10" id="RuQ-rd-ZF4"/>
                                                 <constraint firstItem="7G4-Ic-qP1" firstAttribute="centerY" secondItem="gix-7L-PUh" secondAttribute="centerY" id="YAo-uh-nYO"/>
+                                                <constraint firstItem="cBa-Di-M2g" firstAttribute="top" secondItem="7G4-Ic-qP1" secondAttribute="top" id="ZZQ-x5-5Q1"/>
                                                 <constraint firstItem="7G4-Ic-qP1" firstAttribute="leading" secondItem="gix-7L-PUh" secondAttribute="leadingMargin" constant="12" id="bdk-vY-nZX"/>
-                                                <constraint firstItem="jtk-ye-Rdj" firstAttribute="baseline" secondItem="7G4-Ic-qP1" secondAttribute="baseline" id="du6-TA-YRx"/>
-                                                <constraint firstItem="cBa-Di-M2g" firstAttribute="centerY" secondItem="gix-7L-PUh" secondAttribute="centerY" id="rWw-zG-MO1"/>
-                                                <constraint firstItem="jtk-ye-Rdj" firstAttribute="leading" secondItem="gix-7L-PUh" secondAttribute="leading" constant="189" id="s12-DY-wph"/>
+                                                <constraint firstItem="jtk-ye-Rdj" firstAttribute="baseline" secondItem="7G4-Ic-qP1" secondAttribute="baseline" id="gt1-I9-Ta0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="noteDaysLeft" destination="jtk-ye-Rdj" id="Gx1-5L-DLz"/>
                                             <outlet property="noteTitleLabel" destination="7G4-Ic-qP1" id="66a-Kq-k4h"/>
+                                            <outlet property="shoppingButtonOnCell" destination="cBa-Di-M2g" id="rmf-Jc-R71"/>
                                             <segue destination="Pl0-77-D5Y" kind="show" identifier="displayNote" id="0r6-4T-0fj"/>
                                         </connections>
                                     </tableViewCell>
@@ -90,12 +97,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FoodE" id="Sne-3a-i0C">
-                        <barButtonItem key="leftBarButtonItem" image="settings" id="PHg-Y9-XYt">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="RZp-YC-A5z" kind="show" identifier="Settings" id="1d8-LF-0h6"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hbq-X2-g1D">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -107,6 +108,7 @@
                     <connections>
                         <outlet property="tableView" destination="Elv-6l-4SF" id="iig-nI-QYn"/>
                         <segue destination="aGP-AW-amk" kind="show" identifier="gotoAddFromPlaylist" id="5dJ-uz-9BK"/>
+                        <segue destination="RZp-YC-A5z" kind="show" identifier="Settings" id="gtt-Bf-gsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxL-S0-uhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +250,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3g-2b-R4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fMO-V1-TXa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="882" y="-292"/>
+            <point key="canvasLocation" x="1024" y="-142"/>
         </scene>
         <!--Item-->
         <scene sceneID="hiV-qM-O63">
@@ -528,7 +530,6 @@
     <resources>
         <image name="delete_sign" width="25" height="25"/>
         <image name="iTunesArtwork@1x" width="512" height="512"/>
-        <image name="settings" width="25" height="25"/>
         <image name="shopping_cart" width="25" height="25"/>
         <image name="shopping_cart_filled" width="25" height="25"/>
     </resources>

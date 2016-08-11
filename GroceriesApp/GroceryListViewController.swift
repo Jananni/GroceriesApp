@@ -57,6 +57,10 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
             self.performSegueWithIdentifier("gotoAddFromPlaylist", sender: self)
             self.fab.close()
         }
+        fab.addItem("Settings", icon: UIImage(named: "settings")) { item in
+            self.performSegueWithIdentifier("Settings", sender: self)
+            self.fab.close()
+        }
         fab.fabDelegate = self
 
         self.view.addSubview(fab)
@@ -84,24 +88,36 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
         cell.delegate = self
         cell.noteTitleLabel.text = note.itemName
         cell.noteDaysLeft.text = String(note.daysLeft)
+        //     cell.shoppingButtonOnCell.setImage(UIImage(named: "shopping_cart"), forState: UIControlState.Normal)
+        //     cell.shoppingButtonOnCell.setImage(UIImage(named: "shopping_cart_filled"), forState: UIControlState.Selected)
 
         if Int(cell.noteDaysLeft.text!)! <= 3
         {
             let swiftColor = UIColor(red: 255/255, green: 204/255, blue: 103/255, alpha: 1)
             cell.noteTitleLabel.backgroundColor = swiftColor
             cell.backgroundColor = swiftColor
+            let cellBGView = UIView()
+            cellBGView.backgroundColor = swiftColor
+            cell.selectedBackgroundView = cellBGView
+
         }
         else if Int(cell.noteDaysLeft.text!)! <= 7
         {
             let swiftColortwo = UIColor(red: 255/255, green: 255/255, blue: 204/255, alpha: 1)
             cell.noteTitleLabel.backgroundColor = swiftColortwo
             cell.backgroundColor = swiftColortwo
+            let cellBGView = UIView()
+            cellBGView.backgroundColor = swiftColortwo
+            cell.selectedBackgroundView = cellBGView
         }
         else
         {
             let swiftColorthree = UIColor(red: 204/255, green: 255/255, blue: 204/255, alpha: 1)
             cell.noteTitleLabel.backgroundColor = swiftColorthree
             cell.backgroundColor = swiftColorthree
+            let cellBGView = UIView()
+            cellBGView.backgroundColor = swiftColorthree
+            cell.selectedBackgroundView = cellBGView
         }
 
         return cell
@@ -144,40 +160,38 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
             notes = RealmHelper.retrieveNotes()
         }
     }
+
+    func fixCellsSeparator() {
+
+        // Loop through every cell in the tableview
+        for cell: UITableViewCell in self.tableView.visibleCells {
+
+            // Loop through every subview in the cell which its class is kind of SeparatorView
+            for subview: UIView in (cell.contentView.superview?.subviews)!
+                where NSStringFromClass(subview.classForCoder).hasSuffix("SeparatorView") {
+                    subview.hidden = false
+            }
+        }
+        
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        //  Perform some stuff
+        //  ...
+
+        tableView.endUpdates()
+        fixCellsSeparator()
+        
+    }
+
 }
 
 extension GroceryListViewController: ListGroceryCellDelegate
 {
     func buttonCellClicked(cell: ListGroceryCell)
     {
-        /*
-        if !shoppingButtonClickedAlready
-        {
-            //   shoppingListItem = cell.noteTitleLabel.text!
-            var isSomethingThereAlready = false
 
-            for i in 0...RealmHelper.retrieveShoppingItem().count
-            {
-                print("COUNT")
-                print(RealmHelper.retrieveShoppingItem().count)
-                if cell.noteTitleLabel.text! == RealmHelper.retrieveNotes()[i]
-                {
-                    isSomethingThereAlready = true
-                }
-            }
-            if !isSomethingThereAlready
-            {
-                shoppingListItem = cell.noteTitleLabel.text!
-                RealmHelper.addShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
-                shoppingButtonClickedAlready = !shoppingButtonClickedAlready
-            }
-        }
-        else
-        {
-            RealmHelper.deleteShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
-            shoppingButtonClickedAlready = !shoppingButtonClickedAlready
-        }
- */
         shoppingButtonClickedAlready = cell.shoppingClicked
         if !shoppingButtonClickedAlready
         {
@@ -195,16 +209,26 @@ extension GroceryListViewController: ListGroceryCellDelegate
             }
             else
             {
-                cell.shoppingClicked = !cell.shoppingClicked
+                //  cell.shoppingClicked = !cell.shoppingClicked
             }
         }
         else
         {
-            //     cell.shouldDelete = !cell.shouldDelete
+            //     cell.shouldDelete = !cell.shouldDelete   //DELETING THE ITEM WHEN UNCLICKED
             cell.shoppingClicked = !cell.shoppingClicked
         }
-
-        // RealmHelper.addShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
+ /*
+        if shoppingButtonClickedAlready
+        {
+            cell.shoppingClicked = !cell.shoppingClicked
+        }
+        else
+        {
+            RealmHelper.addShoppingItem(ShoppingItem(bar: cell.noteTitleLabel.text!))
+            cell.shoppingClicked = !cell.shoppingClicked
+        }
+ 
+*/
     }
 }
 

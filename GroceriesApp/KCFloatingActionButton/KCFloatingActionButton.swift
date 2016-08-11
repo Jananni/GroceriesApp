@@ -31,7 +31,7 @@ public class KCFloatingActionButton: UIView {
     /**
         This object's button size.
     */
-    public var size: CGFloat = 40 {   //56
+    public var size: CGFloat = 50 {   //56
         didSet {
             self.setNeedsDisplay()
             self.recalculateItemsOrigin()
@@ -46,7 +46,7 @@ public class KCFloatingActionButton: UIView {
             self.setNeedsDisplay()
         }
     }
-    public var paddingY: CGFloat = 14 {
+    public var paddingY: CGFloat = 30 {
         didSet {
             self.setNeedsDisplay()
         }
@@ -98,7 +98,7 @@ public class KCFloatingActionButton: UIView {
     /**
         Child item's default size.
     */
-    @IBInspectable public var itemSize: CGFloat = 35 {  //42
+    @IBInspectable public var itemSize: CGFloat = 45 {  //42
         didSet {
             self.items.forEach { item in
                 item.size = self.itemSize
