@@ -121,6 +121,7 @@ public class KCFloatingActionButtonItem: UIView {
     public var icon: UIImage? = nil {
         didSet {
             iconImageView.image = icon
+            //    iconImageView = UIImage(named: "menu")
         }
     }
     

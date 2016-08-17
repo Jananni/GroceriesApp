@@ -48,7 +48,9 @@ class GroceryListViewController: UIViewController, KCFloatingActionButtonDelegat
         item.buttonColor = UIColor.blueColor()
         item.circleShadowColor = UIColor.redColor()
         item.titleShadowColor = UIColor.blueColor()
+
         item.title = "Custom item"
+
         item.handler = { item in
 
         }
@@ -209,7 +211,7 @@ extension GroceryListViewController: ListGroceryCellDelegate
             }
             else
             {
-                //  cell.shoppingClicked = !cell.shoppingClicked
+                //cell.shoppingClicked = !cell.shoppingClicked
             }
         }
         else

@@ -67,7 +67,7 @@
 		F53DC80C1D481A40002942F3 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		F53DC80E1D481A76002942F3 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		F53DC8101D481A85002942F3 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		F55420D41D34328000E78F88 /* GroceriesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55420D41D34328000E78F88 /* FoodE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55420D71D34328000E78F88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55420D91D34328000E78F88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F55420DC1D34328000E78F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		F55420D51D34328000E78F88 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F55420D41D34328000E78F88 /* GroceriesApp.app */,
+				F55420D41D34328000E78F88 /* FoodE.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 			);
 			name = GroceriesApp;
 			productName = GroceriesApp;
-			productReference = F55420D41D34328000E78F88 /* GroceriesApp.app */;
+			productReference = F55420D41D34328000E78F88 /* FoodE.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -509,8 +509,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FoodE;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = FoodE;
+				PROVISIONING_PROFILE = "51e2387c-0dab-41c4-ae9e-9fa92727a30d";
 				SWIFT_OBJC_BRIDGING_HEADER = "MRLocalNotificationFacade/GroceriesApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -541,8 +541,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.FoodE;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = FoodE;
+				PROVISIONING_PROFILE = "51e2387c-0dab-41c4-ae9e-9fa92727a30d";
 				SWIFT_OBJC_BRIDGING_HEADER = "MRLocalNotificationFacade/GroceriesApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

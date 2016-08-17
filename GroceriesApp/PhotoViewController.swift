@@ -76,7 +76,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var category: String?
 
         let notification = notificationFacade.buildNotificationWithDate(nsdate, timeZone: false, category: category, userInfo: nil)
-        notificationFacade.customizeNotificationAlert(notification, title: noteNameTextField.text, body: "eat by" + noteDateTextField.text!, action: "accept", launchImage: nil)
+        notificationFacade.customizeNotificationAlert(notification, title: noteNameTextField.text, body: "eat by " + noteDateTextField.text!, action: "accept", launchImage: nil)
         // show error alert if needed
         do {
             try notificationFacade.canScheduleNotification(notification, withRecovery: false)
